@@ -64,7 +64,6 @@ $connection->close();
 <![endif]-->
 </head>
 <body>
-<!-- Top content -->
 <div class="top-content">
 <div class="inner-bg">
 <div class="container">

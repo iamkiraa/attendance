@@ -5,12 +5,12 @@ include("connection.php"); // connction to database
 ?>
 <div class="container" style="margin-top:50px">
 <div class="content">
-<h2>List of Student</h2>
+<h2>List of Teacher</h2>
 <hr />
 <?php
 
 if(isset($_GET['action']) == 'delete'){ // if remove button clicked
-$student_icno = $_GET['student_icno']; // get icno value
+$icno = $_GET['icno']; // get icno value
 $check = mysqli_query($connection, "SELECT * FROM student WHERE student_icno='$student_icno'"); // query for selected ic number
 if(mysqli_num_rows($check) == 0){ // if no icno selected
 echo '<div class="alert alert-info alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> No data found..</div>'; // display message no data found.'
@@ -104,4 +104,3 @@ $no++; // next number
 </div> <!-- /.container -->
 </body>
 </html>
-

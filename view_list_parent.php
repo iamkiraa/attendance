@@ -1,6 +1,6 @@
 <?php
-include('check_teacher.php'); //check if user is a teacher
-include('header_teacher.php'); //load header content for teacher page
+include('check_admin.php'); //check if user is a teacher
+include('header_admin.php'); //load header content for teacher page
 include("connection.php"); // connction to database
 ?>
 <div class="container" style="margin-top:50px">

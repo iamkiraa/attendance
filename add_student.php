@@ -1,6 +1,6 @@
 <?php
-include('check_teacher.php'); //check if user is Teacher
-include('header_teacher.php'); //load header content for Teacher page
+include('check_admin.php'); //check if user is Administrator
+include('header_admin.php'); //load header content for Admin page
 include("connection.php"); // connection to database
 ?>
 
@@ -46,20 +46,20 @@ body {margin:0;}
 <hr />
 <?php
 if(isset($_POST['add'])){ // if button Add clicked
-$student_icno = $_POST['icno'];
-$student_name = $_POST['name'];
-$student_subject = $_POST['subject'];
-$student_teacher = $_POST['teacher'];
-$student_class = $_POST['class'];
-$student_gender = $_POST['gender'];
-$student_dob = $_POST['dob'];
-$student_address = $_POST['address'];
-$student_telephone = $_POST['telephone'];
+$icno = $_POST['icno'];
+$name = $_POST['name'];
+$subject = $_POST['subject'];
+$teacher = $_POST['teacher'];
+$class = $_POST['class'];
+$gender = $_POST['gender'];
+$dob = $_POST['dob'];
+$address = $_POST['address'];
+$parentName = $_POST['parentName'];
 
-$check = mysqli_query($connection, "SELECT * FROM student WHERE icno='$student_icno"); // query for selected ic number
+$check = mysqli_query($connection, "SELECT * FROM student WHERE icno='$icno"); // query for selected ic number
 if(mysqli_num_rows($check) == 0){ // check if ic number do not exist in database
 
-$insert = mysqli_query($connection, "INSERT INTO student(student_icno, student_name, student_subject, student_teacher, student_class, student_gender, student_dob, student_address, student_telephone) VALUES('$student_icno','$student_name', '$student_subject', '$student_teacher', '$student_class','$student_gender', '$student_dob', '$student_address', '$student_telephone')") or die(mysqli_error()); // query for adding data into database
+$insert = mysqli_query($connection, "INSERT INTO student(icno, name, subject, teacher, class, gender, dob, address, parentName) VALUES('$icno','$name', '$subject', '$teacher', '$class','$gender', '$dob', '$address', '$parentName')") or die(mysqli_error()); // query for adding data into database
 if($insert){ // if query executed successfully
 echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Data for new student added.. <a href="view_list_student.php"><- Back</a></div>'; // display message data saved successfully.'
 }else{ // if query unsuccessful
@@ -89,8 +89,16 @@ echo '<div class="alert alert-danger alert-dismissable"><button type="button" cl
 
 <div class="form-group">
 <label class="col-sm-3 control-label">Subject</label>
-<div class="col-sm-4">
-<input type="text" name="subject" class="form-control" placeholder=" Subject" required>
+<div class="col-sm-2">
+<select name="subject" class="form-control" required>
+<option value=""> - Select Subject - </option>
+<option value="BM">BM</option>
+<option value="BI">BI</option>
+<option value="MATEMATIK">MATEMATIK</option>
+<option value="SAINS">SAINS</option>
+<option value="PENDIDIKAN ISLAM">PENDIDIKAN ISLAM</option>
+<option value="SEJARAH">SEJARAH</option>
+</select>
 </div>
 </div>
 
@@ -141,12 +149,15 @@ echo '<div class="alert alert-danger alert-dismissable"><button type="button" cl
 </div>
 </div>
 
-          <div class="form-group">
-            <label class="col-sm-3 control-label">Telephone No</label>
+          
+		  <div class="form-group">
+            <label class="col-sm-3 control-label">Parent Name</label>
             <div class="col-sm-3">
-              <input type="text" name="telephone" class="form-control" placeholder="Telephone No" required>
+              <input type="text" name="parentName" class="form-control" placeholder="Parent Name" required>
             </div>
           </div>
+
+		  
 
           <div class="form-group">
             <label class="col-sm-3 control-label">&nbsp;</label>

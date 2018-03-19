@@ -65,8 +65,22 @@ xmlhttp.send();
 <div class="collapse navbar-collapse" id="myNavbar">
 <ul class="nav navbar-nav">
 <li class="active"><a href="admin.php"><span class="glyphicon glyphicon-home"></span> Admin Home</a></li>
-<li><a href="view_users.php" data-toggle="tooltip" data-placement="bottom" title="View Members List"><span class="glyphicon glyphicon-list"></span> View List</a></li>
-<li><a href="add_member.php" data-toggle="tooltip" data-placement="bottom" title="Add New Members" ><span class="glyphicon glyphicon-user"></span> Add Member</a></li>
+<li class="dropdown"><a type="button" data-toggle="dropdown" />
+	<span class="glyphicon glyphicon-list"></span> View List
+	<ul class="dropdown-menu">
+	  <li><a href="view_list_teacher.php">Teacher</a></li>
+      <li><a href="view_list_student.php">Student</a></li>
+      <li><a href="view_list_parent.php">Parent</a></li>
+    </ul>
+</li>
+<li class="dropdown"><a type="button" data-toggle="dropdown" />
+	<span class="glyphicon glyphicon-user"></span> Add Member
+	<ul class="dropdown-menu">
+      <li><a href="add_student.php">Student</a></li>
+      <li><a href="add_parent.php">Parent</a></li>
+    </ul>
+</li>
+
 </ul>
 <form name="search" method="post" action="search_name.php" role="search" class="navbar-form navbar-right">
 <div class="form-group">

@@ -1,7 +1,7 @@
 
 <?php
-include('check_teacher.php'); //check if user if an administrator
-include('header_teacher.php'); //load header content for admin page
+include('check_admin.php'); //check if user if an administrator
+include('header_admin.php'); //load header content for admin page
 include("connection.php"); // connection to database
 ?>
 <div class="container" style="margin-top:50px">
@@ -10,20 +10,20 @@ include("connection.php"); // connection to database
 <hr />
 <?php
 if(isset($_POST['add'])){ // if button Add clicked
-$parent_icno = $_POST['parent_icno'];
-$parent_name = $_POST['parent_name'];
-$parent_child = $_POST['parent_child'];
-$parent_gender = $_POST['parent_gender'];
-$parent_dob = $_POST['parent_dob'];
-$parent_address = $_POST['parent_address'];
-$parent_phone = $_POST['parent_phone'];
-$parent_email = $_POST['parent_email'];
-$parent_occu = $_POST['parent_occu'];
+$icno = $_POST['icno'];
+$name = $_POST['name'];
+$child = $_POST['childName'];
+$gender = $_POST['gender'];
+$dob = $_POST['dob'];
+$address = $_POST['address'];
+$phone = $_POST['phone'];
+$email = $_POST['email'];
+$occu = $_POST['occu'];
 
-$check = mysqli_query($connection, "SELECT * FROM parent WHERE icno='$parent_icno'"); // query for selected ic number
+$check = mysqli_query($connection, "SELECT * FROM parent WHERE icno='$icno'"); // query for selected ic number
 if(mysqli_num_rows($check) == 0){ // check if ic number do not exist in database
 
-$insert = mysqli_query($connection, "INSERT INTO parent(parent_icno, parent_name, parent_child, parent_gender, parent_dob, parent_address, parent_phone, parent_email, parent_occu ) VALUES('$parent_icno','$parent_name', '$parent_child' ,'$parent_gender', '$parent_dob', '$parent_address', '$parent_phone', '$parent_email', '$parent_occu')") or die(mysqli_error()); // query for adding data into database
+$insert = mysqli_query($connection, "INSERT INTO parent(icno, name, childName, gender, dob, address, phone, email, occu) VALUES('$icno','$name', '$childName' ,'$gender', '$dob', '$address', '$phone', '$email', '$occu')") or die(mysqli_error()); // query for adding data into database
 if($insert){ // if query executed successfully
 echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Data for new parent added.. <a href="view_list_parent.php"><- Back</a></div>'; // display message data saved successfully.'
 }else{ // if query unsuccessful
@@ -54,7 +54,7 @@ echo '<div class="alert alert-danger alert-dismissable"><button type="button" cl
 <div class="form-group">
 <label class="col-sm-3 control-label">Child Name</label>
 <div class="col-sm-4">
-<input type="text" name="name" class="form-control" placeholder="Name" required>
+<input type="text" name="childNames" class="form-control" placeholder="Child Name" required>
 </div>
 </div>
 
@@ -86,7 +86,7 @@ echo '<div class="alert alert-danger alert-dismissable"><button type="button" cl
 
 <label class="col-sm-3 control-label">Telephone No</label>
 <div class="col-sm-3">
-<input type="text" name="telephone" class="form-control" placeholder="Telephone No" required>
+<input type="text" name="phone" class="form-control" placeholder="Telephone No" required>
 </div>
 </div>
 <div class="form-group">
@@ -99,13 +99,13 @@ echo '<div class="alert alert-danger alert-dismissable"><button type="button" cl
 <div class="form-group">
 <label class="col-sm-3 control-label">Occupation</label>
 <div class="col-sm-2">
-<select name="position" class="form-control" required>
+<select name="occu" class="form-control" required>
 <option value=""> - Select Occupation - </option>
 <option value="Government">Government</option>
-<option value="Secretary">Secretary</option>
-<option value="Treasurer">Treasurer</option>
-<option value="Vice President">Vice President</option>
-<option value="President">President</option>
+<option value="Private Sector">Private Sector</option>
+<option value="Teacher">Teacher</option>
+<option value="General Business">General Business</option>
+<option value="Other">Other</option>
 </select>
 </div>
 </div>

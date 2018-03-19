@@ -10,12 +10,12 @@ include("connection.php"); // connction to database
 <?php
 
 if(isset($_GET['action']) == 'delete'){ // if remove button clicked
-$student_icno = $_GET['student_icno']; // get icno value
-$check = mysqli_query($connection, "SELECT * FROM student WHERE student_icno='$student_icno'"); // query for selected ic number
+$icno = $_GET['icno']; // get icno value
+$check = mysqli_query($connection, "SELECT * FROM student WHERE icno='$icno'"); // query for selected ic number
 if(mysqli_num_rows($check) == 0){ // if no icno selected
 echo '<div class="alert alert-info alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> No data found..</div>'; // display message no data found.'
 }else{ // if there are data found
-$delete = mysqli_query($connection, "DELETE FROM student WHERE student_icno='$student_icno'"); // query for removing data
+$delete = mysqli_query($connection, "DELETE FROM student WHERE icno='$icno'"); // query for removing data
 if($delete){ // if delete query succesfull
 echo '<div class="alert alert-primary alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Data removed successfully.</div>'; // display message data removed'
 }else{ // if delete query unsuccesfull
@@ -62,12 +62,12 @@ echo '<div class="alert alert-danger alert-dismissable"><button type="button" cl
 <th>Subject</th>
 <th>Day of Birth</th>
 <th>Address</th>
-<th>Telephone</th>
+<th>Parent Name</th>
 <th>Tools</th>
 </tr>
 <?php
 if($filter){
-$sql = mysqli_query($connection, "SELECT * FROM student WHERE student_class='$filter' ORDER BY icno ASC"); // query -filter
+$sql = mysqli_query($connection, "SELECT * FROM student WHERE class='$filter' ORDER BY icno ASC"); // query -filter
 } else if($filterstatus){
 $sql = mysqli_query($connection, "SELECT * FROM student WHERE status='$filterstatus' ORDER BY icno ASC"); // query -filter
 }else{

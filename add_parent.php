@@ -12,7 +12,7 @@ include("connection.php"); // connection to database
 if(isset($_POST['add'])){ // if button Add clicked
 $icno = $_POST['icno'];
 $name = $_POST['name'];
-$child = $_POST['childName'];
+$childName = $_POST['childName'];
 $gender = $_POST['gender'];
 $dob = $_POST['dob'];
 $address = $_POST['address'];
@@ -54,7 +54,7 @@ echo '<div class="alert alert-danger alert-dismissable"><button type="button" cl
 <div class="form-group">
 <label class="col-sm-3 control-label">Child Name</label>
 <div class="col-sm-4">
-<input type="text" name="childNames" class="form-control" placeholder="Child Name" required>
+<input type="text" name="childName" class="form-control" placeholder="Child Name" required>
 </div>
 </div>
 

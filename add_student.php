@@ -46,6 +46,7 @@ body {margin:0;}
 <hr />
 <?php
 if(isset($_POST['add'])){ // if button Add clicked
+<<<<<<< HEAD
 $icno = $_POST['icno'];
 $name = $_POST['name'];
 $subject = $_POST['subject'];
@@ -57,6 +58,19 @@ $address = $_POST['address'];
 $parentName = $_POST['parentName'];
 
 $check = mysqli_query($connection, "SELECT * FROM student WHERE icno='$icno"); // query for selected ic number
+=======
+$student_icno = $_POST['icno'];
+$student_name = $_POST['name'];
+$student_subject = $_POST['subject'];
+$student_teacher = $_POST['teacher'];
+$student_class = $_POST['class'];
+$student_gender = $_POST['gender'];
+$student_dob = $_POST['dob'];
+$student_address = $_POST['address'];
+$student_telephone = $_POST['telephone'];
+
+$check = mysqli_query($connection, "SELECT * FROM student WHERE student_icno='$student_icno'"); // query for selected ic number
+>>>>>>> 295d0f943fa0d71fcbf1b7c51cf56af852a2ff25
 if(mysqli_num_rows($check) == 0){ // check if ic number do not exist in database
 
 $insert = mysqli_query($connection, "INSERT INTO student(icno, name, subject, teacher, class, gender, dob, address, parentName) VALUES('$icno','$name', '$subject', '$teacher', '$class','$gender', '$dob', '$address', '$parentName')") or die(mysqli_error()); // query for adding data into database

@@ -81,12 +81,16 @@ while($row = mysqli_fetch_assoc($sql)){ // fetch query into array
 echo '
 <tr>
 <td>'.$no.'</td>
-<td>'.$row['student_icno'].'</td>
+<td>'.$row['icno'].'</td>
 <td><a href="profile.php?icno='.$row['icno'].'">'.$row['name'].'</a></td>
 <td>'.$row['gender'].'</td>
 <td>'.$row['class'].'</td>
-<td>'.$row['position'].'</td>
-<td>'.$row['status'].'</td>
+<td>'.$row['teacher'].'</td>
+<td>'.$row['subject'].'</td>
+<td>'.$row['dob'].'</td>
+<td>'.$row['address'].'</td>
+<td>'.$row['parentName'].'</td>
+
 <td>
 <a href="edit.php?icno='.$row['icno'].'" title="Update Data" data-toggle="tooltip" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
 <a href="reset_password.php?icno='.$row['icno'].'" title="Change Password" data-toggle="tooltip" class="btn btn-warning btn-sm"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></a>

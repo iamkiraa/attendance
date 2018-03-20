@@ -45,9 +45,12 @@ echo '<div class="alert alert-danger alert-dismissable"><button type="button" cl
 <th>IC No</th>
 <th>Name</th>
 <th>Gender</th>
-<th>Class</th>
-<th>Position</th>
-<th>Status</th>
+<th>Child Name</th>
+<th>Date of Birth</th>
+<th>Address</th>
+<th>Telephone No</th>
+<th>Email</th>
+<th>Occupation</th>
 <th>Tools</th>
 </tr>
 <?php
@@ -69,9 +72,12 @@ echo '
 <td>'.$row['icno'].'</td>
 <td><a href="profile.php?icno='.$row['icno'].'">'.$row['name'].'</a></td>
 <td>'.$row['gender'].'</td>
-<td>'.$row['class'].'</td>
-<td>'.$row['position'].'</td>
-<td>'.$row['status'].'</td>
+<td>'.$row['childName'].'</td>
+<td>'.$row['dob'].'</td>
+<td>'.$row['address'].'</td>
+<td>'.$row['phone'].'</td>
+<td>'.$row['email'].'</td>
+<td>'.$row['occu'].'</td>
 <td>
 <a href="edit.php?icno='.$row['icno'].'" title="Update Data" data-toggle="tooltip" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
 <a href="reset_password.php?icno='.$row['icno'].'" title="Change Password" data-toggle="tooltip" class="btn btn-warning btn-sm"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></a>

@@ -56,7 +56,7 @@ $student_dob = $_POST['dob'];
 $student_address = $_POST['address'];
 $student_telephone = $_POST['telephone'];
 
-$check = mysqli_query($connection, "SELECT * FROM student WHERE icno='$student_icno"); // query for selected ic number
+$check = mysqli_query($connection, "SELECT * FROM student WHERE student_icno='$student_icno'"); // query for selected ic number
 if(mysqli_num_rows($check) == 0){ // check if ic number do not exist in database
 
 $insert = mysqli_query($connection, "INSERT INTO student(student_icno, student_name, student_subject, student_teacher, student_class, student_gender, student_dob, student_address, student_telephone) VALUES('$student_icno','$student_name', '$student_subject', '$student_teacher', '$student_class','$student_gender', '$student_dob', '$student_address', '$student_telephone')") or die(mysqli_error()); // query for adding data into database

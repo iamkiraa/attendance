@@ -24,29 +24,7 @@ echo '<div class="alert alert-danger alert-dismissable"><button type="button" cl
 }
 }
 ?>
-<!-- filtering members based on class -->
-<form class="form-inline" method="get">
-<div class="form-group">
-<select name="filter" class="form-control" onchange="form.submit()">
-<option value="0"> Filter Student by Class </option>
-<?php $filter = (isset($_GET['filter']) ? strtolower($_GET['filter']) : NULL); ?>
-<option value="Form 1" <?php if($filter == 'Form 1'){ echo 'selected'; } ?>>Form 1</option>
-<option value="Form 2" <?php if($filter == 'Form 2'){ echo 'selected'; } ?>>Form 2</option>
-<option value="Form 3" <?php if($filter == 'Form 3'){ echo 'selected'; } ?>>Form 3</option>
-<option value="Form 4" <?php if($filter == 'Form 4'){ echo 'selected'; } ?>>Form 4</option>
-<option value="Form 5" <?php if($filter == 'Form 5'){ echo 'selected'; } ?>>Form 5</option>
-<option value="Form 6" <?php if($filter == 'Form 6'){ echo 'selected'; } ?>>Form 6</option>
-</select>
-</div>
-<div class="form-group">
-<select name="filterstatus" class="form-control" onchange="form.submit()">
-<option value="0"> Filter Student by Teacher </option>
-<?php $filterstatus = (isset($_GET['filterstatus']) ? strtolower($_GET['filterstatus']) : NULL); ?>
-<option value="Active" <?php if($filterstatus == 'Active'){ echo 'selected'; } ?>>Active</option>
-<option value="Inactive" <?php if($filterstatus == 'Inactive'){ echo 'selected'; } ?>>Inactive</option>
-</select>
-</div>
-</form> <!-- end filter -->
+
 <br />
 <!-- start responsive table-->
 <div class="table-responsive">
@@ -66,13 +44,8 @@ echo '<div class="alert alert-danger alert-dismissable"><button type="button" cl
 <th>Tools</th>
 </tr>
 <?php
-if($filter){
-$sql = mysqli_query($connection, "SELECT * FROM student WHERE class='$filter' ORDER BY icno ASC"); // query -filter
-} else if($filterstatus){
-$sql = mysqli_query($connection, "SELECT * FROM student WHERE status='$filterstatus' ORDER BY icno ASC"); // query -filter
-}else{
-$sql = mysqli_query($connection, "SELECT * FROM student ORDER BY icno ASC"); // if no filter
-}
+
+$sql = mysqli_query($connection, "SELECT * FROM student ORDER BY icno ASC");
 if(mysqli_num_rows($sql) == 0){
 echo '<tr><td colspan="14">No data retrieved..</td></tr>'; // if no data retrieved from database
 }else{ // if there are data

@@ -51,36 +51,12 @@ echo '<div class="alert alert-info alert-dismissable"><button type="button" clas
 <td><?php echo $row['address']; ?></td>
 </tr>
 <tr>
-<th>Telephone</th>
-<td><?php echo $row['telephone']; ?></td>
-</tr>
-<tr>
-<th>Email</th>
-<td><?php echo $row['email']; ?></td>
-</tr>
-<tr>
-<th>Fee</th>
-<td><?php echo $row['fee']; ?></td>
-</tr>
-<tr>
 <th>Class</th>
 <td><?php echo $row['class']; ?></td>
 </tr>
-<tr>
-<th>Status</th>
-<td><?php echo $row['status']; ?></td>
-</tr>
-<tr>
-<th>Position</th>
-<td><?php echo $row['position']; ?></td>
-</tr>
-<tr>
-<th>Profile Image</th>
-<td><?php echo $row['upload']; ?></td>
-</tr>
 
 </table>
-<a href="view_users.php" class="btn btn-sm btn-info"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Back</a>
+<a href="view_list_student.php" class="btn btn-sm btn-info"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Back</a>
 <a href="edit.php?icno=<?php echo $row['icno']; ?>" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Update Data</a>
 <a href="email.php?icno=<?php echo $row['icno']; ?>" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Email Notification</a>
 <a href="export_json.php?icno=<?php echo $row['icno']; ?>" class="btn btn-sm btn-warning"><span class="glyphicon glyphicon-export" aria-hidden="true"></span> Export JSON</a>

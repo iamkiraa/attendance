@@ -70,7 +70,7 @@ echo '
 <tr>
 <td>'.$no.'</td>
 <td>'.$row['icno'].'</td>
-<td><a href="profile.php?icno='.$row['icno'].'">'.$row['name'].'</a></td>
+<td><a href="profile_parent.php?icno='.$row['icno'].'">'.$row['name'].'</a></td>
 <td>'.$row['gender'].'</td>
 <td>'.$row['childName'].'</td>
 <td>'.$row['dob'].'</td>

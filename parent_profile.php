@@ -2,20 +2,20 @@
 session_start();
 $icno = $_SESSION['icno'];
 //check if user has login
-include('check_teacher.php'); //load header content for teacher page
-include('header_teacher.php'); //load header content for teacher page
+include('check_parent.php'); //load header content for teacher page
+include('header_parent.php'); //load header content for teacher page
 include("connection.php"); // connection to database
 ?>
 <div class="container" style="margin-top:50px">
 <div class="content">
-<h2>View Teacher Details &raquo;</h2>
+<h2>View Parent Details &raquo;</h2>
 <hr />
 <?php
 
-$sql = mysqli_query($connection, "SELECT * FROM teacher WHERE icno='$icno'");
+$sql = mysqli_query($connection, "SELECT * FROM parent WHERE icno='$icno'");
 // query for selecting ic number from db
 if(mysqli_num_rows($sql) == 0){
-header("Location: teacher.php");
+header("Location: parent.php");
 }else{
 $row = mysqli_fetch_assoc($sql);
 }
@@ -51,12 +51,12 @@ $row = mysqli_fetch_assoc($sql);
 <td><?php echo $row['email']; ?></td>
 </tr>
 <tr>
-<th>Class</th>
-<td><?php echo $row['class']; ?></td>
+<th>Occupation</th>
+<td><?php echo $row['occu']; ?></td>
 </tr>
 <tr>
-<th>Salary</th>
-<td><?php echo $row['salary']; ?></td>
+<th>Child Name</th>
+<td><?php echo $row['childName']; ?></td>
 </tr>
 <tr>
 <th>Profile Image</th>
@@ -64,8 +64,8 @@ $row = mysqli_fetch_assoc($sql);
 </tr>
 </table>
 
-<a href="teacher.php" class="btn btn-sm btn-info"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Back</a>
-<a href="edit_teacher.php?icno=<?php echo $row['icno']; ?>" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Update Data</a>
+<a href="parent.php" class="btn btn-sm btn-info"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Back</a>
+<a href="edit_parent.php?icno=<?php echo $row['icno']; ?>" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Update Data</a>
 <?php
 if(($row['status']) == 'Active'){
 echo '<a href="print_letter.php?icno='.$row['icno'].'" target="_blank" title="Print Letter" data-toggle="tooltip" class="btn btn-sm btn-primary"><span class="glyphicon glyphicon-print" aria-hidden="true"></span> Print Letter</a>';

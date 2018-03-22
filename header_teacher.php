@@ -71,6 +71,9 @@ xmlhttp.send();
 <div class="collapse navbar-collapse" id="myNavbar">
 <ul class="nav navbar-nav">
 <li class="active"><a href="teacher.php"><span class="glyphicon glyphicon-home"></span> Teacher Home</a></li>
+<li><a href="add_teacher_data.php" data-toggle="tooltip" data-placement="bottom" title="Add Teacher Information"><span class="glyphicon glyphicon-pencil"></span> Add Teacher Data</a></li>
+<li><a href="teacher_profile.php" data-toggle="tooltip" data-placement="bottom" title="View Teacher Details"><span class="glyphicon glyphicon-list"></span> View Teacher Profile</a></li>
+<li><a href="password.php" data-toggle="tooltip" data-placement="bottom" title="Change Password"><span class="glyphicon glyphicon-refresh"></span> Change Password</a></li>
 <li class="dropdown"><a type="button" data-toggle="dropdown" />
 	<span class="glyphicon glyphicon-list"></span> View List
 	<ul class="dropdown-menu">
@@ -91,7 +94,7 @@ xmlhttp.send();
 	<ul class="dropdown-menu">
       <li><a href="#">Do Attendance</a></li>
       <li><a href="#">Overall Report</a></li>
-      <li><a href="#">Monthly JavaScript</a></li>
+      <li><a href="#">Monthly Report</a></li>
     </ul>
 </li>
 	

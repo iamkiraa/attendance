@@ -112,6 +112,8 @@ echo '<div class="alert alert-danger alert-dismissable"><button type="button" cl
 <div class="col-sm-6">
 <input type="submit" name="add" class="btn btn-sm btn-primary" value="Save" data-toggle="tooltip" title="Save member data">
 <a href="teacher.php" class="btn btn-sm btn-danger" data-toggle="tooltip" title="Cancel">Cancel</a>
+
+<a href="password_teacher.php" class="btn btn-sm btn-success" data-toggle="tooltip" title="Cancel">Change Password</a>
 </div>
 </div>
 </form> <!-- /form -->

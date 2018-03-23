@@ -63,7 +63,7 @@ xmlhttp.send();
 
 </div>
 <div class="collapse navbar-collapse" id="myNavbar">
-<ul class="navbar-form navbar-right">
+<ul class="nav navbar-nav navbar-right">
 <li class="active"><a href="admin.php"><span class="glyphicon glyphicon-home"></span> Admin Home</a></li>
 <li class="dropdown"><a type="button" data-toggle="dropdown" />
 	<span class="glyphicon glyphicon-list"></span> View List
@@ -87,6 +87,8 @@ xmlhttp.send();
 <input type="text" name="searchName" class="form-control" onkeyup="showResult(this.value)" placeholder="Type student name" autocomplete="off"/>
 <div id="livesearch" style="position: absolute;"></div>
 </div>
+</li>
+<li>
 <button type="submit" name="submit" id="submit" value="search" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Search Member by Name"><span class="glyphicon glyphicon-search"></span> Search </button>
 </form>
 </li>

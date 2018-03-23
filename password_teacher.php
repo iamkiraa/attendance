@@ -59,7 +59,7 @@ echo '<div class="alert alert-danger alert-dismissable"><button type="button" cl
 <label class="col-sm-3 control-label">&nbsp;</label>
 <div class="col-sm-6">
 <input type="submit" name="change" class="btn btn-sm btn-info" value="Change" data-toggle="tooltip" title="Change Password">
-<a href="member.php" class="btn btn-sm btn-danger" data-toggle="tooltip" title="Cancel"><b>Cancel</b></a>
+<a href="teacher.php" class="btn btn-sm btn-danger" data-toggle="tooltip" title="Cancel"><b>Cancel</b></a>
 </div>
 </div>
 </form>

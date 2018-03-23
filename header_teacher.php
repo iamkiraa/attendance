@@ -69,15 +69,20 @@ xmlhttp.send();
 
 </div>
 <div class="collapse navbar-collapse" id="myNavbar">
-<ul class="nav navbar-nav">
-<li class="active"><a href="teacher.php"><span class="glyphicon glyphicon-home"></span> Teacher Home</a></li>
-<li><a href="add_teacher_data.php" data-toggle="tooltip" data-placement="bottom" title="Add Teacher Information"><span class="glyphicon glyphicon-pencil"></span> Add Teacher Data</a></li>
-<li><a href="teacher_profile.php" data-toggle="tooltip" data-placement="bottom" title="View Teacher Details"><span class="glyphicon glyphicon-list"></span> View Teacher Profile</a></li>
-<li><a href="password_teacher.php" data-toggle="tooltip" data-placement="bottom" title="Change Password"><span class="glyphicon glyphicon-refresh"></span> Change Password</a></li>
-<li class="dropdown"><a type="button" data-toggle="dropdown" />
-	<span class="glyphicon glyphicon-list"></span> View List
-	<ul class="dropdown-menu">
-	  <li><a href="view_list_teacher.php">Teacher</a></li>
+<ul class="nav navbar-nav navbar-right">
+  <li class="active"><a href="teacher.php"><span class="glyphicon glyphicon-home"></span> Teacher Home</a></li>
+  <li>
+  <a href="add_teacher_data.php" data-toggle="tooltip" data-placement="bottom" title="Add Teacher Information"><span class="glyphicon glyphicon-pencil"></span> Add Teacher Data</a>
+  </li>
+  <li>
+  <a href="teacher_profile.php" data-toggle="tooltip" data-placement="bottom" title="View Teacher Details"><span class="glyphicon glyphicon-list"></span> View Teacher Profile</a>
+  </li>
+
+  <li class="dropdown">
+    <a type="button" data-toggle="dropdown" />
+	    <span class="glyphicon glyphicon-list"></span> View List
+	    <ul class="dropdown-menu">
+	    <li><a href="view_list_teacher.php">Teacher</a></li>
       <li><a href="view_list_student.php">Student</a></li>
       <li><a href="view_list_parent.php">Parent</a></li>
     </ul>
@@ -97,15 +102,7 @@ xmlhttp.send();
       <li><a href="#">Monthly Report</a></li>
     </ul>
 </li>
-	
 </ul>
-<form name="search" method="post" action="search_name.php" role="search" class="navbar-form navbar-right">
-<div class="form-group">
-<input type="text" name="searchName" class="form-control" onkeyup="showResult(this.value)" placeholder="Type student name" autocomplete="off"/>
-<div id="livesearch" style="position: absolute;"></div>
-</div>
-<button type="submit" name="submit" id="submit" value="search" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Search Member by Name"><span class="glyphicon glyphicon-search"></span> Search </button>
-</form>
 </div>
 </div>
 <div class="container">

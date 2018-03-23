@@ -113,6 +113,7 @@ echo $msg;
 </button>
 <hr />
 <a href="login.php" class="btn btn-default">Log In Here</a>
+<a href="index.php" class="btn btn-default">Back</a>
 </div>
 </form>
 </div>

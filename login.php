@@ -98,6 +98,8 @@ echo $msg;
 </div>
 <button type="submit" name="submit" class="btn">Sign in!</button>
 </form>
+<hr />
+<a href="index.php" class="btn btn-default">Back</a>
 </div>
 </div>
 </div>

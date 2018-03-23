@@ -38,7 +38,7 @@ $('[data-toggle="tooltip"]').tooltip();
 <a class="navbar-brand hidden-xs hidden-sm" href="index.php" target="_blank">Student Attendance System</a>
 </div>
 <div class="collapse navbar-collapse" id="myNavbar">
-<ul class="nav navbar-nav">
+<ul class="nav navbar-nav navbar-right">
 <li class="active"><a href="index.php"><span class="glyphicon glyphicon-home"></span> Home </a></li>
 <li><a href="aboutus.php" data-toggle="tooltip" data-placement="bottom" title="About Us Page"> About Us</a></li>
 <li><a href="signup.php" data-toggle="tooltip" data-placement="bottom" title="Sign Up" ><span class="glyphicon glyphicon-pencil"></span> Sign Up</a></li>

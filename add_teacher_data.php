@@ -1,10 +1,10 @@
 <?php
-session_start();
-$icno = $_SESSION['icno'];
 //check if user has login
 include('check_teacher.php'); //check if teacher logged in
 include('header_teacher.php'); //load header content for teacher page
 include("connection.php"); // connction to database
+session_start();
+$icno = $_SESSION['icno'];
 ?>
 <div class="container" style="margin-top:50px">
 <div class="content">

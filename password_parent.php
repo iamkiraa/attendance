@@ -10,7 +10,7 @@ include("connection.php"); // connection to database
 <?php
 if(isset($_POST['change'])){ // if change button clicked
 $icno = $_SESSION['icno'];
-$password = md5($_POST['password']); // assign password with md5 encryption
+$password = $_POST['password']; // assign password with md5 encryption
 $password1 = $_POST['password1'];
 $password2 = $_POST['password2'];
 $check = mysqli_query($connection, "SELECT * FROM user WHERE icno='$icno' AND password='$password'"); // select query ic number and password
@@ -19,8 +19,7 @@ echo '<div class="alert alert-danger alert-dismissable"><button type="button" cl
 }else{
 if($password1 == $password2){ // if password 1 same as password 2
 if(strlen($password1) >= 6){ // minimum 6 character
-$pass = md5($password1); // md5 encryption
-$update = mysqli_query($connection, "UPDATE user SET password='$pass' WHERE icno='$icno'"); // query update password
+$update = mysqli_query($connection, "UPDATE user SET password='$password1' WHERE icno='$icno'"); // query update password
 if($update){ // if update query successful
 echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Password change successful. <a href="login.php"><- Login</a></div>';
 }else{ // if updating failed

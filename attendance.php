@@ -5,8 +5,61 @@ include("connection.php"); // connction to database
 ?>
 <div class="container" style="margin-top:50px">
 <div class="content">
-<h2>List of Student</h2>
+<h2>Student</h2>
 <hr />
+<div class="panel panel-default">
+	<div class="panel panel heading">
+	<h2>
+	<a class="btn btn-info pull-right" href="viewAll.php"> View All Student </a>
+	</h2>
+	
+	<div class="panel panel-body">
+	<form action="attendance.php">
+	<table class="table table-striped">
+	<tr>
+	<th>No</th>
+	<th>IC No</th>
+	<th>Name</th>
+	<th>Gender</th>
+	<th>Class</th>
+	<th>Subject</th>
+	<th>Attendance Status</th>
+	</tr>
+	<?php
+		$sql=mysqli_query($connection, "select * from attendance");
+		$no=0;
+		while($row=mysqli_fetch_array($sqls))
+		{
+			$no++;
+			
+	?>
+	<tr>
+	<td><?php echo $no;?></td>
+	<td><?php echo $row['icno']; ?></td>
+	<td><?php echo $row['studName']; ?></td>
+	<td><?php echo $row['gender']; ?></td>
+	<td><?php echo $row['class']; ?></td>
+	<td><?php echo $row['subject']; ?></td>
+	<td>
+	<input type="radio" name="" value="Present">Present
+	<input type="radio" name="" value="Absent">Absent
+	</td>
+	</tr>
+	<?php
+		}
+	?>
+	</table>
+	
+	
+	</div>
+	
+	</div>
+	
+</div>	
+
+
+
+
 <?php
 
 if(isset($_GET['action']) == 'delete'){ // if remove button clicked
@@ -57,9 +110,9 @@ echo '<div class="alert alert-danger alert-dismissable"><button type="button" cl
 <th>Name</th>
 <th>Gender</th>
 <th>Class</th>
-<th>Position</th>
+<th>Subject</th>
 <th>Status</th>
-<th>Tools</th>
+
 </tr>
 <?php
 if($filter){
@@ -78,10 +131,10 @@ echo '
 <tr>
 <td>'.$no.'</td>
 <td>'.$row['icno'].'</td>
-<td><a href="profile.php?icno='.$row['icno'].'">'.$row['name'].'</a></td>
+<td>'.$row['name'].'</a></td>
 <td>'.$row['gender'].'</td>
 <td>'.$row['class'].'</td>
-<td>'.$row['position'].'</td>
+<td>'.$row['subject'].'</td>
 <td>'.$row['status'].'</td>
 <td>
 <a href="edit.php?icno='.$row['icno'].'" title="Update Data" data-toggle="tooltip" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>

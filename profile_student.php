@@ -12,7 +12,7 @@ include("connection.php"); // connection to database
 $icno = $_GET['icno']; // get selected ic number
 $sql = mysqli_query($connection, "SELECT * FROM student WHERE icno='$icno'"); // query for selecting ic number from db
 if(mysqli_num_rows($sql) == 0){
-header("Location: view_users.php");
+header("Location: view_list_student.php");
 }else{
 $row = mysqli_fetch_assoc($sql);
 }
@@ -57,10 +57,10 @@ echo '<div class="alert alert-info alert-dismissable"><button type="button" clas
 
 </table>
 <a href="view_list_student.php" class="btn btn-sm btn-info"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Back</a>
-<a href="edit.php?icno=<?php echo $row['icno']; ?>" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Update Data</a>
+<a href="edit_student.php?icno=<?php echo $row['icno']; ?>" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Update Data</a>
 <a href="email.php?icno=<?php echo $row['icno']; ?>" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Email Notification</a>
 <a href="export_json.php?icno=<?php echo $row['icno']; ?>" class="btn btn-sm btn-warning"><span class="glyphicon glyphicon-export" aria-hidden="true"></span> Export JSON</a>
-<a href="profile.php?action=delete&icno=<?php echo $row['icno']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure remove data belong to <?php echo $row['name']; ?>')"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Remove Data</a>
+<a href="profile_student.php?action=delete&icno=<?php echo $row['icno']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure remove data belong to <?php echo $row['name']; ?>')"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Remove Data</a>
 </div> <!-- /.content -->
 </div> <!-- /.container -->
 <script>

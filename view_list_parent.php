@@ -1,11 +1,11 @@
 <?php
-include('check_admin.php'); //check if user is a teacher
-include('header_admin.php'); //load header content for teacher page
+include('check_admin.php'); //check if user is an Administrator
+include('header_admin.php'); //load header content for Administrator page
 include("connection.php"); // connction to database
 ?>
 <div class="container" style="margin-top:50px">
 <div class="content">
-<h2>List of Parents</h2>
+<h2>List of Parent</h2>
 <hr />
 <?php
 
@@ -35,12 +35,12 @@ echo '<div class="alert alert-danger alert-dismissable"><button type="button" cl
 <th>IC No</th>
 <th>Name</th>
 <th>Gender</th>
-<th>Child Name</th>
-<th>Date of Birth</th>
+<th>Day of Birth</th>
 <th>Address</th>
-<th>Telephone No</th>
+<th>Telephone</th>
 <th>Email</th>
 <th>Occupation</th>
+<th>Child Name</th>
 <th>Tools</th>
 </tr>
 <?php
@@ -57,16 +57,17 @@ echo '
 <td>'.$row['icno'].'</td>
 <td><a href="profile_parent.php?icno='.$row['icno'].'">'.$row['name'].'</a></td>
 <td>'.$row['gender'].'</td>
-<td>'.$row['childName'].'</td>
 <td>'.$row['dob'].'</td>
 <td>'.$row['address'].'</td>
 <td>'.$row['phone'].'</td>
 <td>'.$row['email'].'</td>
 <td>'.$row['occu'].'</td>
+<td>'.$row['childName'].'</td>
+
 <td>
-<a href="edit.php?icno='.$row['icno'].'" title="Update Data" data-toggle="tooltip" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
+<a href="edit_parent.php?icno='.$row['icno'].'" title="Update Data" data-toggle="tooltip" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
 <a href="reset_password.php?icno='.$row['icno'].'" title="Change Password" data-toggle="tooltip" class="btn btn-warning btn-sm"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></a>
-<a href="view_users.php?action=delete&icno='.$row['icno'].'" title="Remove Data" data-toggle="tooltip" onclick="return confirm(\'Are you sure to remove this data for '.$row['name'].'?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+<a href="view_list_parent.php?action=delete&icno='.$row['icno'].'" title="Remove Data" data-toggle="tooltip" onclick="return confirm(\'Are you sure to remove this data for '.$row['name'].'?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
 </td>
 </tr>
 ';
@@ -80,3 +81,4 @@ $no++; // next number
 </div> <!-- /.container -->
 </body>
 </html>
+

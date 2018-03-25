@@ -8,7 +8,7 @@ $icno = $_SESSION['icno'];
 ?>
 <div class="container" style="margin-top:50px">
 <div class="content">
-<h2>Add Teacher Data &raquo;</h2>
+<h2> Teacher Details &raquo;</h2>
 <hr />
 <?php
 //Default status and position

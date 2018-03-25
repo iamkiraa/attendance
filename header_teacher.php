@@ -97,7 +97,7 @@ xmlhttp.send();
 <li class="dropdown"><a type="button" data-toggle="dropdown" />
 	<span class="glyphicon glyphicon-list-alt"></span> Attendance
 	<ul class="dropdown-menu">
-      <li><a href="#">Do Attendance</a></li>
+      <li><a href="attendance.php">Do Attendance</a></li>
       <li><a href="#">Overall Report</a></li>
       <li><a href="#">Monthly Report</a></li>
     </ul>

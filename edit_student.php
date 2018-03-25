@@ -1,17 +1,17 @@
 <?php
-include('check_parent.php'); //check if user if a parenr
-include('header_parent.php'); //load header content for page
+include('check_student.php'); //check if user if a student
+include('header_student.php'); //load header content for student page
 include("connection.php"); // connection to database
 ?>
 <div class="container" style="margin-top:50px">
 <div class="content">
-<h2>Edit Parent Details &raquo;</h2>
+<h2>Edit Student Details &raquo;</h2>
 <hr />
 <?php
 $icno = $_GET['icno']; // get ic number
-$sql = mysqli_query($connection, "SELECT * FROM parent WHERE icno='$icno'"); // query for select member by ic number
+$sql = mysqli_query($connection, "SELECT * FROM student WHERE icno='$icno'"); // query for select member by ic number
 if(mysqli_num_rows($sql) == 0){
-header("Location: parent_profile.php");
+header("Location: profile_student.php");
 }else{
 $row = mysqli_fetch_assoc($sql);
 }
@@ -60,19 +60,19 @@ $name = $_POST['name'];
 $gender = $_POST['gender'];
 $dob = $_POST['dob'];
 $address = $_POST['address'];
-$phone = $_POST['phone'];
-$email = $_POST['email'];
-$occu = $_POST['occu'];
-$childName = $_POST['childName'];
-$update = mysqli_query($connection, "UPDATE parent SET name='$name', gender='$gender', dob='$dob', address='$address', phone='$phone', email='$email', occu='$occu', childName='$childName' WHERE icno='$icno'") or die(mysqli_error()); // query for update data in database
+$subject = $_POST['subject'];
+$teacher = $_POST['teacher'];
+$class = $_POST['class'];
+$parentName = $_POST['parentName'];
+$update = mysqli_query($connection, "UPDATE parent SET name='$name', gender='$gender', dob='$dob', address='$address', subject='$subject', teacher='$teacher', class='$class', parentName='$parentName' WHERE icno='$icno'") or die(mysqli_error()); // query for update data in database
 if($update){ // if update query execution successful
-header("Location: edit_parent.php?icno=".$icno."&process=success"); // add process-success in URL
+header("Location: edit_student.php?icno=".$icno."&process=success"); // add process-success in URL
 }else{ // if update query unsuccessful
 echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Cannot update data, please try again.</div>'; // display cannot update message'
 }
 }
 if(isset($_GET['process']) == 'success'){ // if process-success
-echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Data updated. <a href="parent_profile.php"><- Back</a></div>'; // display data updated.'
+echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Data updated. <a href="profile_student.php"><- Back</a></div>'; // display data updated.'
 }
 ?>
 <!-- Form for updating data -->

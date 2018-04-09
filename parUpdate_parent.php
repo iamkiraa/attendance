@@ -5,13 +5,13 @@ include("connection.php"); // connection to database
 ?>
 <div class="container" style="margin-top:50px">
 <div class="content">
-<h2>Edit Parent Details &raquo;</h2>
+<h2>Update Parent &raquo;</h2>
 <hr />
 <?php
 $parentID = $_GET['parentID']; // get ic number
 $sql = mysqli_query($connection, "SELECT * FROM parent WHERE parentID='$parentID'"); // query for select member by ic number
 if(mysqli_num_rows($sql) == 0){
-header("Location: parent_profile.php");
+header("Location: parProfile_parent.php");
 }else{
 $row = mysqli_fetch_assoc($sql);
 }
@@ -66,7 +66,7 @@ $occu = $_POST['occu'];
 $childName = $_POST['childName'];
 $update = mysqli_query($connection, "UPDATE parent SET name='$name', gender='$gender', dob='$dob', address='$address', phone='$phone', email='$email', occu='$occu', childName='$childName' WHERE icno='$icno'") or die(mysqli_error()); // query for update data in database
 if($update){ // if update query execution successful
-header("Location: edit_parent.php?parentID=".$parentID."&process=success"); // add process-success in URL
+header("Location: parUpdate_parent.php?parentID=".$parentID."&process=success"); // add process-success in URL
 }else{ // if update query unsuccessful
 echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Cannot update data, please try again.</div>'; // display cannot update message'
 }
@@ -158,7 +158,7 @@ class="form-control" placeholder="Name" required>
 <label class="col-sm-3 control-label">&nbsp;</label>
 <div class="col-sm-6">
 <input type="submit" name="save" class="btn btn-sm btn-primary" value="Update" data-toggle="tooltip" title="Update member details">
-<a href="parent_profile.php" class="btn btn-sm btn-danger" data-toggle="tooltip" title="Cancel">Cancel</a>
+<a href="parProfile_parent.php" class="btn btn-sm btn-danger" data-toggle="tooltip" title="Cancel">Cancel</a>
 </div>
 </div>
 </form>
@@ -171,4 +171,4 @@ format: 'dd-mm-yyyy',
 })
 </script>
 </body>
-</html>
+</html> 

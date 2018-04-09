@@ -10,12 +10,12 @@ include("connection.php"); // connction to database
 <?php
 
 if(isset($_GET['action']) == 'delete'){ // if remove button clicked
-$icno = $_GET['icno']; // get icno value
-$check = mysqli_query($connection, "SELECT * FROM student WHERE icno='$icno'"); // query for selected ic number
-if(mysqli_num_rows($check) == 0){ // if no icno selected
+$studentID = $_GET['studentID']; // get studentID value
+$check = mysqli_query($connection, "SELECT * FROM student WHERE studentID='$studentID'"); // query for selected ic number
+if(mysqli_num_rows($check) == 0){ // if no studentID selected
 echo '<div class="alert alert-info alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> No data found..</div>'; // display message no data found.'
 }else{ // if there are data found
-$delete = mysqli_query($connection, "DELETE FROM student WHERE icno='$icno'"); // query for removing data
+$delete = mysqli_query($connection, "DELETE FROM student WHERE studentID='$studentID'"); // query for removing data
 if($delete){ // if delete query succesfull
 echo '<div class="alert alert-primary alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Data removed successfully.</div>'; // display message data removed'
 }else{ // if delete query unsuccesfull
@@ -25,8 +25,6 @@ echo '<div class="alert alert-danger alert-dismissable"><button type="button" cl
 }
 ?>
 
-<br />
-<!-- start responsive table-->
 <div class="table-responsive">
 
 <table class="table table-striped table-hover">
@@ -35,17 +33,21 @@ echo '<div class="alert alert-danger alert-dismissable"><button type="button" cl
 <th>IC No</th>
 <th>Name</th>
 <th>Gender</th>
-<th>Class</th>
-<th>Teacher's Subject</th>
-<th>Subject</th>
-<th>Day of Birth</th>
+<th>Date of Birth</th>
+<th>Birth Certificate</th>
+<th>Race</th>
 <th>Address</th>
+<th>Teacher</th>
+<th>Class</th>
+<th>Subject</th>
 <th>Parent Name</th>
+<th>Session</th>
 <th>Tools</th>
 </tr>
-<?php
 
-$sql = mysqli_query($connection, "SELECT * FROM student ORDER BY icno ASC");
+
+<?php
+$sql = mysqli_query($connection, "SELECT * FROM student ORDER BY studentID ASC");
 if(mysqli_num_rows($sql) == 0){
 echo '<tr><td colspan="14">No data retrieved..</td></tr>'; // if no data retrieved from database
 }else{ // if there are data
@@ -54,20 +56,22 @@ while($row = mysqli_fetch_assoc($sql)){ // fetch query into array
 echo '
 <tr>
 <td>'.$no.'</td>
-<td>'.$row['icno'].'</td>
-<td><a href="profile_student.php?icno='.$row['icno'].'">'.$row['name'].'</a></td>
+<td>'.$row['studentID'].'</td>
+<td><a href="admProfile_student.php?istudentID='.$row['studentID'].'">'.$row['name'].'</a></td>
 <td>'.$row['gender'].'</td>
-<td>'.$row['class'].'</td>
-<td>'.$row['teacher'].'</td>
-<td>'.$row['subject'].'</td>
 <td>'.$row['dob'].'</td>
+<td>'.$row['birthCer'].'</td>
+<td>'.$row['race'].'</td>
 <td>'.$row['address'].'</td>
+<td>'.$row['teacher'].'</td>
+<td>'.$row['class'].'</td>
+<td>'.$row['subject'].'</td>
 <td>'.$row['parentName'].'</td>
-
+<td>'.$row['session'].'</td>
 <td>
-<a href="edit_student.php?icno='.$row['icno'].'" title="Update Data" data-toggle="tooltip" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
-<a href="reset_password.php?icno='.$row['icno'].'" title="Change Password" data-toggle="tooltip" class="btn btn-warning btn-sm"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></a>
-<a href="view_list_student.php?action=delete&icno='.$row['icno'].'" title="Remove Data" data-toggle="tooltip" onclick="return confirm(\'Are you sure to remove this data for '.$row['name'].'?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+<a href="admUpdate_student.php?studentID='.$row['studentID'].'" title="Update Data" data-toggle="tooltip" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
+<a href="reset_password.php?studentID='.$row['studentID'].'" title="Change Password" data-toggle="tooltip" class="btn btn-warning btn-sm"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></a>
+<a href="admView_student.php?action=delete&studentID='.$row['studentID'].'" title="Remove Data" data-toggle="tooltip" onclick="return confirm(\'Are you sure to remove this data for '.$row['name'].'?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
 </td>
 </tr>
 ';
@@ -81,4 +85,3 @@ $no++; // next number
 </div> <!-- /.container -->
 </body>
 </html>
-

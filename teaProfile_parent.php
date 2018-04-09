@@ -1,23 +1,23 @@
 <?php
-include('check_admin.php'); //check if user if an administrator
-include('header_admin.php'); //load header content for admin page
+include('check_teacher.php'); //check if user if a teacher
+include('header_teacher.php'); //load header content for teacher page
 include("connection.php"); // connection to database
 ?>
 <div class="container" style="margin-top:50px">
 <div class="content">
 
-<h2>Parents Details &raquo;</h2>
+<h2>Parent Profile &raquo;</h2>
 <hr />
 <?php
-$icno = $_GET['icno']; // get selected ic number
-$sql = mysqli_query($connection, "SELECT * FROM student WHERE icno='$icno'"); // query for selecting ic number from db
+$parentID = $_GET['parentID']; // get selected ic number
+$sql = mysqli_query($connection, "SELECT * FROM parent WHERE parentID='$parentID'"); // query for selecting ic number from db
 if(mysqli_num_rows($sql) == 0){
-header("Location: view_list_parent.php");
+header("Location: teaView_parent.php");
 }else{
 $row = mysqli_fetch_assoc($sql);
 }
 if(isset($_GET['action']) == 'delete'){ // if delete button clicked
-$delete = mysqli_query($connection, "DELETE FROM student WHERE icno='$icno'"); // query for deleting data based on ic number
+$delete = mysqli_query($connection, "DELETE FROM parent WHERE parentID='$parentID'"); // query for deleting data based on ic number
 if($delete){ // if query executed successfully
 echo '<div class="alert alert-danger alert-dismissable">><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Data removed.</div>'; // display data removed.'
 }else{ // if query unsuccessful
@@ -32,7 +32,7 @@ echo '<div class="alert alert-info alert-dismissable"><button type="button" clas
 </tr>
 <tr>
 <th width="20%">IC No</th>
-<td><?php echo $row['icno']; ?></td>
+<td><?php echo $row['parentID']; ?></td>
 </tr>
 <tr>
 <th>Name</th>
@@ -66,17 +66,18 @@ echo '<div class="alert alert-info alert-dismissable"><button type="button" clas
 <th>Child Name</th>
 <td><?php echo $row['childName']; ?></td>
 </tr>
+
 <tr>
 <th>Profile Image</th>
 <td><?php echo $row['upload']; ?></td>
 </tr>
 
 </table>
-<a href="view_list_parent.php" class="btn btn-sm btn-info"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Back</a>
-<a href="edit_parent.php?icno=<?php echo $row['icno']; ?>" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Update Data</a>
-<a href="email.php?icno=<?php echo $row['icno']; ?>" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Email Notification</a>
-<a href="export_json.php?icno=<?php echo $row['icno']; ?>" class="btn btn-sm btn-warning"><span class="glyphicon glyphicon-export" aria-hidden="true"></span> Export JSON</a>
-<a href="profile_parent.php?action=delete&icno=<?php echo $row['icno']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure remove data belong to <?php echo $row['name']; ?>')"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Remove Data</a>
+<a href="teaView_parent.php" class="btn btn-sm btn-info"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Back</a>
+<a href="teaUpdate_parent.php?parentID=<?php echo $row['parentID']; ?>" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Update Data</a>
+<a href="email.php?iparentID=<?php echo $row['parentID']; ?>" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Email Notification</a>
+<a href="export_json.php?parentID=<?php echo $row['parentID']; ?>" class="btn btn-sm btn-warning"><span class="glyphicon glyphicon-export" aria-hidden="true"></span> Export JSON</a>
+<a href="teaProfile_parent.php?action=delete&parentID=<?php echo $row['parentID']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure remove data belong to <?php echo $row['name']; ?>')"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Remove Data</a>
 </div> <!-- /.content -->
 </div> <!-- /.container -->
 <script>

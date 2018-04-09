@@ -14,7 +14,7 @@ if ($count == 1)
 {
 $_SESSION['username']=$row['username'];
 $_SESSION['level'] = $row['level'];
-$_SESSION['icno'] = $row['icno'];
+$_SESSION['ID'] = $row['ID'];
 if($row['level'] == "Administrator")
 {
 header("Location: admin.php");
@@ -72,9 +72,9 @@ $connection->close();
 <div class="col-sm-6 col-sm-offset-3 form-box">
 <div class="form-top">
 <div class="form-top-left">
-<h3>Arau High School</h3>
+<h2>SMK SYED SIRAJUDDIN</h2>
 <h3>Registration System</h3>
-<p>Enter Username and Password:</p>
+<p>Please Enter Username and Password:</p>
 </div>
 <div class="form-top-right">
 <i class="fa fa-key"></i>

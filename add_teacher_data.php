@@ -4,16 +4,14 @@ include('check_teacher.php'); //check if teacher logged in
 include('header_teacher.php'); //load header content for teacher page
 include("connection.php"); // connction to database
 session_start();
-$icno = $_SESSION['icno'];
+$teacherID = $_SESSION['ID'];
 ?>
 <div class="container" style="margin-top:50px">
 <div class="content">
 <h2> Teacher Details &raquo;</h2>
 <hr />
 <?php
-//Default status and position
-$status = 'Inactive';
-$position = 'Member';
+
 if(isset($_POST['add'])){ // if button Add clicked
 $name = $_POST['name'];
 $gender = $_POST['gender'];
@@ -23,10 +21,10 @@ $phone = $_POST['phone'];
 $email = $_POST['email'];
 $class = $_POST['class'];
 $salary = $_POST['salary'];
-$check = mysqli_query($connection, "SELECT * FROM teacher WHERE icno='$icno'"); // query for selected ic number
+$check = mysqli_query($connection, "SELECT * FROM teacher WHERE teacherID ='$teacherID'"); // query for selected ic number
 if(mysqli_num_rows($check) == 0){ // check if ic number do not exist in database
-$insert = mysqli_query($connection, "INSERT INTO teacher(icno, name, gender, dob, address, phone, email, class,
- salary) VALUES('$icno','$name', '$gender', '$dob', '$address', '$phone', '$email', '$class', '$salary')") or die(mysqli_error()); // query for adding data into database
+$insert = mysqli_query($connection, "INSERT INTO teacher(teacherID, name, gender, dob, address, phone, email, class,
+ salary) VALUES('$teacherID','$name', '$gender', '$dob', '$address', '$phone', '$email', '$class', '$salary')") or die(mysqli_error()); // query for adding data into database
  
  if($insert){ // if query executed successfully
 echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Data for new member added.. <a href="teacher.php"><- Back</a></div>'; // display message data saved successfully.'
@@ -43,7 +41,7 @@ echo '<div class="alert alert-danger alert-dismissable"><button type="button" cl
 <div class="form-group">
 <label class="col-sm-3 control-label">IC No</label>
 <div class="col-sm-2">
-<input type="text" name="icno" class="form-control" placeholder="<?php echo $icno; ?>" disabled>
+<input type="text" name="teacherID" class="form-control" placeholder="<?php echo $teacherID; ?>" disabled>
 </div>
 </div>
 <div class="form-group">

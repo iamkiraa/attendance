@@ -1,17 +1,17 @@
 <?php
-include('check_parent.php'); //check if user if a parenr
-include('header_parent.php'); //load header content for page
+include('check_admin.php'); //check if user if an administration 
+include('header_admin.php'); //load header content for admin page
 include("connection.php"); // connection to database
 ?>
 <div class="container" style="margin-top:50px">
 <div class="content">
-<h2>Edit Parent Details &raquo;</h2>
+<h2>Update Student Data &raquo;</h2>
 <hr />
 <?php
-$parentID = $_GET['parentID']; // get ic number
-$sql = mysqli_query($connection, "SELECT * FROM parent WHERE parentID='$parentID'"); // query for select member by ic number
+$studentID = $_GET['studentID']; // get ic number
+$sql = mysqli_query($connection, "SELECT * FROM student WHERE studentID='$studentID'"); // query for select parent by ic number
 if(mysqli_num_rows($sql) == 0){
-header("Location: parent_profile.php");
+header("Location: admView_student.php");
 }else{
 $row = mysqli_fetch_assoc($sql);
 }
@@ -47,7 +47,7 @@ if ($uploadOk == 0) {
 // if everything is ok, try to upload file
 } else {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-		$update = mysqli_query($connection, "UPDATE parent SET upload='$target_file' WHERE parentID='$parentID'") or die(mysqli_error()); // query for update data in database
+		$update = mysqli_query($connection, "UPDATE student SET upload='$target_file' WHERE studentID='$studentID'") or die(mysqli_error()); // query for update data in database
 		echo "The file ". $target_file . " has been uploaded.";
     } else {
         echo "Sorry, there was an error uploading your file.";
@@ -59,20 +59,27 @@ if(isset($_POST['save'])){ // if save button clicked
 $name = $_POST['name'];
 $gender = $_POST['gender'];
 $dob = $_POST['dob'];
+$birthCer = $_POST['birthCer'];
+$race = $_POST['race'];
 $address = $_POST['address'];
-$phone = $_POST['phone'];
-$email = $_POST['email'];
-$occu = $_POST['occu'];
-$childName = $_POST['childName'];
-$update = mysqli_query($connection, "UPDATE parent SET name='$name', gender='$gender', dob='$dob', address='$address', phone='$phone', email='$email', occu='$occu', childName='$childName' WHERE icno='$icno'") or die(mysqli_error()); // query for update data in database
+$teacher = $_POST['teacher'];
+$class = $_POST['class'];
+$subject = $_POST['subject'];
+$parentName = $_POST['parentName'];
+$session = $_POST['session'];
+
+
+
+
+$update = mysqli_query($connection, "UPDATE student SET name='$name', gender='$gender', dob='$dob', birthCer='$birthCer', race='$race',address='$address', teacher='$teacher', class='$class', subject='$subject', parentName='$parentName' , session='$session'  WHERE studentID='$studentID'") or die(mysqli_error()); // query for update data in database
 if($update){ // if update query execution successful
-header("Location: edit_parent.php?parentID=".$parentID."&process=success"); // add process-success in URL
+echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Data updated. <a href="teaView_student.php"><- Back</a></div>'; // display data updated.'
 }else{ // if update query unsuccessful
 echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Cannot update data, please try again.</div>'; // display cannot update message'
 }
 }
 if(isset($_GET['process']) == 'success'){ // if process-success
-echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Data updated. <a href="parent_profile.php"><- Back</a></div>'; // display data updated.'
+echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Data updated. <a href="teaView_student.php"><- Back</a></div>'; // display data updated.'
 }
 ?>
 <!-- Form for updating data -->
@@ -80,17 +87,18 @@ echo '<div class="alert alert-success alert-dismissable"><button type="button" c
 <div class="form-group">
 <label class="col-sm-3 control-label">IC No</label>
 <div class="col-sm-2">
-<input type="text" name="parentID" value="<?php echo $row ['parentID']; ?>" class="form-control" placeholder="IC No" disabled>
+<input type="text" name="studentID" value="<?php echo $row ['studentID']; ?>" class="form-control" placeholder="IC No" disabled>
 </div>
 </div>
+
 <div class="form-group">
 <label class="col-sm-3 control-label">Name</label>
 <div class="col-sm-4">
 <input type="text" name="name" value="<?php echo $row ['name']; ?>" 
 class="form-control" placeholder="Name" required>
+</div>
+</div>
 
-</div>
-</div>
 <div class="form-group">
 <label class="col-sm-3 control-label">Gender</label>
 <div class="col-sm-2">
@@ -101,47 +109,98 @@ class="form-control" placeholder="Name" required>
 </select>
 </div>
 </div>
+
 <div class="form-group">
 <label class="col-sm-3 control-label">Date of Birth</label>
 <div class="col-sm-4">
 <input type="text" name="dob" value="<?php echo $row ['dob']; ?>" class="input-group datepicker form-control" date="" data-date-format="dd-mm-yyyy" placeholder="dd-mm-yyyy" required>
 </div>
 </div>
+
+<div class="form-group">
+<label class="col-sm-3 control-label">Birth Certificate</label>
+<div class="col-sm-3">
+<textarea name="birthCer" class="form-control" placeholder="Birth Certificate"><?php echo $row ['address']; ?></textarea>
+</div>
+</div>
+
+<div class="form-group">
+<label class="col-sm-3 control-label">Race</label>
+<div class="col-sm-2">
+<select name="race" class="form-control" required>
+<option value="<?php echo $row['race']; ?>"><?php echo $row['race']; ?></option>
+<option value="Malay">Malay</option>
+<option value="Chinese">Chinese</option>
+<option value="Indian">Indian</option>
+<option value="Bumiputera">Bumiputera</option>
+</select>
+</div>
+</div>
+
 <div class="form-group">
 <label class="col-sm-3 control-label">Address</label>
 <div class="col-sm-3">
 <textarea name="address" class="form-control" placeholder="Address"><?php echo $row ['address']; ?></textarea>
 </div>
 </div>
+
 <div class="form-group">
-<label class="col-sm-3 control-label">Telephone</label>
+<label class="col-sm-3 control-label">Teacher's Subject</label>
 <div class="col-sm-3">
-<input type="text" name="phone" value="<?php echo $row ['phone']; ?>" class="form-control" placeholder="Telephone" required>
-</div>
-</div>
-<div class="form-group">
-<label class="col-sm-3 control-label">Email</label>
-<div class="col-sm-3">
-<input type="email" name="email" value="<?php echo $row ['email']; ?>" class="form-control" placeholder="Email" required>
-</div>
-</div>
-<div class="form-group">
-<label class="col-sm-3 control-label">Occupation</label>
-<div class="col-sm-3">
-<input type="occu" name="occu" value="<?php echo $row ['occu']; ?>" class="form-control" placeholder="Occupation" required>
-</div>
-</div>
-<div class="form-group">
-<label class="col-sm-3 control-label">Child Name</label>
-<div class="col-sm-3">
-<input type="childName" name="childName" value="<?php echo $row ['childName']; ?>" class="form-control" placeholder="Child Name" required>
+<input type="text" name="teacher" value="<?php echo $row ['teacher']; ?>" class="form-control" placeholder="Teacher" required>
 </div>
 </div>
 
 <div class="form-group">
-<label class="col-sm-3 control-label">Salary</label>
+<label class="col-sm-3 control-label">Class</label>
+<div class="col-sm-2">
+<select name="class" class="form-control" required>
+<option value="<?php echo $row['class']; ?>"> - Select Class - </option>
+<option value="Form 1">Form 1</option>
+<option value="Form 2">Form 2</option>
+<option value="Form 3">Form 3</option>
+<option value="Form 4">Form 4</option>
+<option value="Form 5">Form 5</option>
+<option value="Form 6">Form 6</option>
+</select>
+</div>
 <div class="col-sm-3">
-<input type="salary" name="salary" value="<?php echo $row ['salary']; ?>" class="form-control" placeholder="Email" required>
+<b>Current Class :</b> <span class="label label-success"><?php echo $row['class']; ?></span>
+</div>
+</div>
+
+<div class="form-group">
+<label class="col-sm-3 control-label">Subject</label>
+<div class="col-sm-2">
+<select name="subject" class="form-control" required>
+<option value=""> - Select Subject - </option>
+<option value="BM">BM</option>
+<option value="BI">BI</option>
+<option value="MATEMATIK">MATEMATIK</option>
+<option value="SAINS">SAINS</option>
+<option value="PENDIDIKAN ISLAM">PENDIDIKAN ISLAM</option>
+<option value="SEJARAH">SEJARAH</option>
+</select>
+</div>
+</div>
+
+<div class="form-group">
+<label class="col-sm-3 control-label">Parent Name</label>
+<div class="col-sm-3">
+<input type="parentName" name="parentName" value="<?php echo $row ['parentName']; ?>" class="form-control" placeholder="Parent Name" required>
+</div>
+</div>
+
+<div class="form-group">
+<label class="col-sm-3 control-label">Session</label>
+<div class="col-sm-2">
+<select name="session" class="form-control" required>
+<option value=""> - Select Session - </option>
+<option value="2018">2018</option>
+<option value="2019">2019</option>
+<option value="2020">2020</option>
+<option value="2021">2021</option>
+</select>
 </div>
 </div>
 
@@ -154,11 +213,12 @@ class="form-control" placeholder="Name" required>
     <input type="submit" value="Upload Image" name="upload">
 </div>
 </div>
+
 <div class="form-group">
 <label class="col-sm-3 control-label">&nbsp;</label>
 <div class="col-sm-6">
 <input type="submit" name="save" class="btn btn-sm btn-primary" value="Update" data-toggle="tooltip" title="Update member details">
-<a href="parent_profile.php" class="btn btn-sm btn-danger" data-toggle="tooltip" title="Cancel">Cancel</a>
+<a href="admView_student.php" class="btn btn-sm btn-danger" data-toggle="tooltip" title="Cancel">Cancel</a>
 </div>
 </div>
 </form>

@@ -1,17 +1,17 @@
 <?php
-include('check_teacher.php'); //check if user if a member
-include('header_teacher.php'); //load header content for member page
+include('check_admin.php'); //check if user if an Administration
+include('header_admin.php'); //load header content for member page
 include("connection.php"); // connection to database
 ?>
 <div class="container" style="margin-top:50px">
 <div class="content">
-<h2>Edit Teacher Details &raquo;</h2>
+<h2>Update Teacher Data &raquo;</h2>
 <hr />
 <?php
-$icno = $_GET['icno']; // get ic number
-$sql = mysqli_query($connection, "SELECT * FROM teacher WHERE icno='$icno'"); // query for select member by ic number
+$teacherID = $_GET['teacherID']; // get ic number
+$sql = mysqli_query($connection, "SELECT * FROM teacher WHERE teacherID='$teacherID'"); // query for select member by ic number
 if(mysqli_num_rows($sql) == 0){
-header("Location: teacher_profile.php");
+header("Location: admProfile_teacher.php");
 }else{
 $row = mysqli_fetch_assoc($sql);
 }
@@ -47,7 +47,7 @@ if ($uploadOk == 0) {
 // if everything is ok, try to upload file
 } else {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-		$update = mysqli_query($connection, "UPDATE teacher SET upload='$target_file' WHERE icno='$icno'") or die(mysqli_error()); // query for update data in database
+		$update = mysqli_query($connection, "UPDATE teacher SET upload='$target_file' WHERE teacherID='$teacherID'") or die(mysqli_error()); // query for update data in database
 		echo "The file ". $target_file . " has been uploaded.";
     } else {
         echo "Sorry, there was an error uploading your file.";
@@ -64,15 +64,15 @@ $phone = $_POST['phone'];
 $email = $_POST['email'];
 $class = $_POST['class'];
 $salary = $_POST['salary'];
-$update = mysqli_query($connection, "UPDATE teacher SET name='$name', gender='$gender', dob='$dob', address='$address', phone='$phone', email='$email', class='$class', salary='$salary' WHERE icno='$icno'") or die(mysqli_error()); // query for update data in database
+$update = mysqli_query($connection, "UPDATE teacher SET name='$name', gender='$gender', dob='$dob', address='$address', phone='$phone', email='$email', class='$class', salary='$salary' WHERE teacherID='$teacherID'") or die(mysqli_error()); // query for update data in database
 if($update){ // if update query execution successful
-header("Location: edit_teacher.php?icno=".$icno."&process=success"); // add process-success in URL
+echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Data updated. <a href="admProfile_teacher.php"><- Back</a></div>'; // display data updated.'
 }else{ // if update query unsuccessful
 echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Cannot update data, please try again.</div>'; // display cannot update message'
 }
 }
 if(isset($_GET['process']) == 'success'){ // if process-success
-echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Data updated. <a href="member_profile.php"><- Back</a></div>'; // display data updated.'
+echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Data updated. <a href="admProfile_teacher.php"><- Back</a></div>'; // display data updated.'
 }
 ?>
 <!-- Form for updating data -->
@@ -80,7 +80,7 @@ echo '<div class="alert alert-success alert-dismissable"><button type="button" c
 <div class="form-group">
 <label class="col-sm-3 control-label">IC No</label>
 <div class="col-sm-2">
-<input type="text" name="icno" value="<?php echo $row ['icno']; ?>" class="form-control" placeholder="IC No" disabled>
+<input type="text" name="teacherID" value="<?php echo $row ['teacherID']; ?>" class="form-control" placeholder="IC No" disabled>
 </div>
 </div>
 <div class="form-group">
@@ -162,7 +162,7 @@ class="form-control" placeholder="Name" required>
 <label class="col-sm-3 control-label">&nbsp;</label>
 <div class="col-sm-6">
 <input type="submit" name="save" class="btn btn-sm btn-primary" value="Update" data-toggle="tooltip" title="Update member details">
-<a href="teacher_profile.php" class="btn btn-sm btn-danger" data-toggle="tooltip" title="Cancel">Cancel</a>
+<a href="admView_teacher.php" class="btn btn-sm btn-danger" data-toggle="tooltip" title="Cancel">Cancel</a>
 </div>
 </div>
 </form>

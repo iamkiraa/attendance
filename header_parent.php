@@ -34,14 +34,15 @@ $('[data-toggle="tooltip"]').tooltip();
 <span class="icon-bar"></span>
 </button>
 
-<a class="navbar-brand hidden-xs hidden-sm" href="index.php" target="_blank">Student Attendance System</a>
+<a class="navbar-brand hidden-xs hidden-sm" href="index.php" target="_blank">SMK SYED SIRAJUDDIN</a>
 </div>
 <div class="collapse navbar-collapse" id="myNavbar">
 <ul class="nav navbar-nav">
 
 <li class="active"><a href="member.php"><span class="glyphicon glyphicon-home"></span> Parent Home</a></li>
 <li><a href="add_parent_data.php" data-toggle="tooltip" data-placement="bottom" title="Add Parent Information"><span class="glyphicon glyphicon-pencil"></span> Add Parent Data</a></li>
-<li><a href="parent_profile.php" data-toggle="tooltip" data-placement="bottom" title="View Parent details"><span class="glyphicon glyphicon-list"></span> View Profile</a></li>
+<li><a href="parProfile_parent.php" data-toggle="tooltip" data-placement="bottom" title="View Parent Profile"><span class="glyphicon glyphicon-list"></span> Parent Profile</a></li>
+<li><a href="parReport_parent.php" data-toggle="tooltip" data-placement="bottom" title="View Child Report"><span class="glyphicon glyphicon-list"></span> View Child Report</a></li>
 <li><a href="password_parent.php" data-toggle="tooltip" data-placement="bottom" title="Change Parent Password"><span class="glyphicon glyphicon-refresh"></span> Change Password</a></li>
 </ul>
 </div>

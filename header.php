@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Student Attendance System</title>
+<title>STUDENT ATTENDANCE SYSTEM</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,6 +26,10 @@ $('[data-toggle="tooltip"]').tooltip();
 </script>
 </head>
 <body>
+
+
+
+
 <!-- top navigation-->
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 <div class="container">
@@ -35,7 +39,7 @@ $('[data-toggle="tooltip"]').tooltip();
 <span class="icon-bar"></span>
 <span class="icon-bar"></span>
 </button>
-<a class="navbar-brand hidden-xs hidden-sm" href="index.php" target="_blank">Student Attendance System</a>
+<a class="navbar-brand hidden-xs hidden-sm" href="index.php" target="_blank">SMK SYED SIRAJUDDIN</a>
 </div>
 <div class="collapse navbar-collapse" id="myNavbar">
 <ul class="nav navbar-nav navbar-right">

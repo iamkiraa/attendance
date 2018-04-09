@@ -10,12 +10,12 @@ include("connection.php"); // connction to database
 <?php
 
 if(isset($_GET['action']) == 'delete'){ // if remove button clicked
-$icno = $_GET['icno']; // get icno value
-$check = mysqli_query($connection, "SELECT * FROM parent WHERE icno='$icno'"); // query for selected ic number
-if(mysqli_num_rows($check) == 0){ // if no icno selected
+$parentID = $_GET['parentID']; // get parentID value
+$check = mysqli_query($connection, "SELECT * FROM parent WHERE parentID='$parentID'"); // query for selected ic number
+if(mysqli_num_rows($check) == 0){ // if no parentID selected
 echo '<div class="alert alert-info alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> No data found..</div>'; // display message no data found.'
 }else{ // if there are data found
-$delete = mysqli_query($connection, "DELETE FROM parent WHERE icno='$icno'"); // query for removing data
+$delete = mysqli_query($connection, "DELETE FROM parent WHERE parentID='$parentID'"); // query for removing data
 if($delete){ // if delete query succesfull
 echo '<div class="alert alert-primary alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Data removed successfully.</div>'; // display message data removed'
 }else{ // if delete query unsuccesfull
@@ -45,7 +45,7 @@ echo '<div class="alert alert-danger alert-dismissable"><button type="button" cl
 </tr>
 <?php
 
-$sql = mysqli_query($connection, "SELECT * FROM parent ORDER BY icno ASC");
+$sql = mysqli_query($connection, "SELECT * FROM parent ORDER BY parentID ASC");
 if(mysqli_num_rows($sql) == 0){
 echo '<tr><td colspan="14">No data retrieved..</td></tr>'; // if no data retrieved from database
 }else{ // if there are data
@@ -54,8 +54,8 @@ while($row = mysqli_fetch_assoc($sql)){ // fetch query into array
 echo '
 <tr>
 <td>'.$no.'</td>
-<td>'.$row['icno'].'</td>
-<td><a href="profile_parent.php?icno='.$row['icno'].'">'.$row['name'].'</a></td>
+<td>'.$row['parentID'].'</td>
+<td><a href="admProfile_parent.php?parentID='.$row['parentID'].'">'.$row['name'].'</a></td>
 <td>'.$row['gender'].'</td>
 <td>'.$row['dob'].'</td>
 <td>'.$row['address'].'</td>
@@ -65,9 +65,9 @@ echo '
 <td>'.$row['childName'].'</td>
 
 <td>
-<a href="edit_parent.php?icno='.$row['icno'].'" title="Update Data" data-toggle="tooltip" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
-<a href="reset_password.php?icno='.$row['icno'].'" title="Change Password" data-toggle="tooltip" class="btn btn-warning btn-sm"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></a>
-<a href="view_list_parent.php?action=delete&icno='.$row['icno'].'" title="Remove Data" data-toggle="tooltip" onclick="return confirm(\'Are you sure to remove this data for '.$row['name'].'?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+<a href="admUpdate_parent.php?parentID='.$row['parentID'].'" title="Update Data" data-toggle="tooltip" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
+<a href="reset_password.php?parentID='.$row['parentID'].'" title="Change Password" data-toggle="tooltip" class="btn btn-warning btn-sm"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></a>
+<a href="admView_parent.php?action=delete&parentID='.$row['parentID'].'" title="Remove Data" data-toggle="tooltip" onclick="return confirm(\'Are you sure to remove this data for '.$row['name'].'?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
 </td>
 </tr>
 ';
@@ -81,4 +81,3 @@ $no++; // next number
 </div> <!-- /.container -->
 </body>
 </html>
-

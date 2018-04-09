@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
 <link rel="stylesheet" href="assets/css/style.css" >
 <!-- JS -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="assets/js/bootstrap.min.js"></script>
 <script src="assets/js/tooltip.js"></script>
 <script src="assets/js/bootstrap-datepicker.js"></script>
@@ -65,7 +65,7 @@ xmlhttp.send();
 <span class="icon-bar"></span>
 <span class="icon-bar"></span>
 </button>
-<a class="navbar-brand hidden-xs hidden-sm" href="index.php" target="_blank">SMK Dato' Sheikh Ahmad</a>
+<a class="navbar-brand hidden-xs hidden-sm" href="index.php" target="_blank">SMK SYED SIRAJUDDINs</a>
 
 </div>
 <div class="collapse navbar-collapse" id="myNavbar">
@@ -75,23 +75,22 @@ xmlhttp.send();
   <a href="add_teacher_data.php" data-toggle="tooltip" data-placement="bottom" title="Add Teacher Information"><span class="glyphicon glyphicon-pencil"></span> Add Teacher Data</a>
   </li>
   <li>
-  <a href="teacher_profile.php" data-toggle="tooltip" data-placement="bottom" title="View Teacher Details"><span class="glyphicon glyphicon-list"></span> View Teacher Profile</a>
+  <a href="teaProfile_teacher.php" data-toggle="tooltip" data-placement="bottom" title="View Teacher Details"><span class="glyphicon glyphicon-list"></span> View Teacher Profile</a>
   </li>
 
   <li class="dropdown">
     <a type="button" data-toggle="dropdown" />
 	    <span class="glyphicon glyphicon-list"></span> View List
 	    <ul class="dropdown-menu">
-	    <li><a href="view_list_teacher.php">Teacher</a></li>
-      <li><a href="view_list_student.php">Student</a></li>
-      <li><a href="view_list_parent.php">Parent</a></li>
+      <li><a href="teaView_student.php">Student</a></li>
+      <li><a href="teaView_parent.php">Parent</a></li>
     </ul>
 </li>
 <li class="dropdown"><a type="button" data-toggle="dropdown" />
 	<span class="glyphicon glyphicon-user"></span> Add Member
 	<ul class="dropdown-menu">
-      <li><a href="add_student.php">Student</a></li>
-      <li><a href="add_parent.php">Parent</a></li>
+      <li><a href="teaAdd_student.php">Student</a></li>
+      <li><a href="teaAdd_parent.php">Parent</a></li>
     </ul>
 </li>
 <li class="dropdown"><a type="button" data-toggle="dropdown" />
@@ -113,4 +112,4 @@ Welcome, <i><?php echo $_SESSION['username']; ?></i>
 <a class="navbar-link" href="logout.php">Logout</a>
 </div>
 </div>
-</nav>
+</nav> 

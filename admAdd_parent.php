@@ -1,4 +1,3 @@
-
 <?php
 include('check_admin.php'); //check if user if an administrator
 include('header_admin.php'); //load header content for admin page
@@ -10,7 +9,8 @@ include("connection.php"); // connection to database
 <hr />
 <?php
 if(isset($_POST['add'])){ // if button Add clicked
-$icno = $_POST['icno'];
+$parentID = $_POST['parentID '];
+$username = $_POST['username'];
 $name = $_POST['name'];
 $childName = $_POST['childName'];
 $gender = $_POST['gender'];
@@ -20,10 +20,11 @@ $phone = $_POST['phone'];
 $email = $_POST['email'];
 $occu = $_POST['occu'];
 
-$check = mysqli_query($connection, "SELECT * FROM parent WHERE icno='$icno'"); // query for selected ic number
+$check = mysqli_query($connection, "SELECT * FROM parent WHERE parentID ='$parentID '"); // query for selected ic number
 if(mysqli_num_rows($check) == 0){ // check if ic number do not exist in database
 
-$insert = mysqli_query($connection, "INSERT INTO parent(icno, name, childName, gender, dob, address, phone, email, occu) VALUES('$icno','$name', '$childName' ,'$gender', '$dob', '$address', '$phone', '$email', '$occu')") or die(mysqli_error()); // query for adding data into database
+$insert = mysqli_query($connection, "INSERT INTO parent(parentID , name, childName, gender, dob, address, phone, email, occu) VALUES('$parentID ','$name', '$childName' ,'$gender', '$dob', '$address', '$phone', '$email', '$occu')") or die(mysqli_error()); // query for adding data into database
+$insert2= mysqli_query($connection, "INSERT INTO user(username, password, level, ID) VALUES('$username','$parentID','Parent','$parentID')")or die(mysqli_error());
 if($insert){ // if query executed successfully
 echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Data for new parent added.. <a href="view_list_parent.php"><- Back</a></div>'; // display message data saved successfully.'
 }else{ // if query unsuccessful
@@ -38,9 +39,16 @@ echo '<div class="alert alert-danger alert-dismissable"><button type="button" cl
 <form class="form-horizontal" action="" method="post">
 
 <div class="form-group">
+<label class="col-sm-3 control-label">Username</label>
+<div class="col-sm-4">
+<input type="text" name="username" class="form-control" placeholder="Username" required>
+</div>
+</div>
+
+<div class="form-group">
 <label class="col-sm-3 control-label">IC No</label>
 <div class="col-sm-2">
-<input type="text" name="icno" class="form-control" placeholder="IC No" required>
+<input type="text" name="parentID" class="form-control" placeholder="IC No" required>
 </div>
 </div>
 
@@ -114,7 +122,7 @@ div class="form-group">
 <label class="col-sm-3 control-label">&nbsp;</label>
 <div class="col-sm-6">
 <input type="submit" name="add" class="btn btn-sm btn-primary" value="Add" data-toggle="tooltip" title="Add member data">
-<a href="view_users.php" class="btn btn-sm btn-danger" data-toggle="tooltip" title="Cancel">Cancel</a>
+<a href="admView_parent.php" class="btn btn-sm btn-danger" data-toggle="tooltip" title="Cancel">Cancel</a>
 </div>
 </div>
 </form> <!-- /form -->

@@ -59,39 +59,41 @@ xmlhttp.send();
 <span class="icon-bar"></span>
 <span class="icon-bar"></span>
 </button>
-<a class="navbar-brand hidden-xs hidden-sm" href="index.php" target="_blank">Student Attendance System</a>
+<img src="assets/img/logos.png" style="width:10%">
+<a class="navbar-brand hidden-xs hidden-sm" href="index.php" target="_blank">SMK SYED SIRAJUDDIN</a>
 
 </div>
 <div class="collapse navbar-collapse" id="myNavbar">
 <ul class="nav navbar-nav navbar-right">
 <li class="active"><a href="admin.php"><span class="glyphicon glyphicon-home"></span> Admin Home</a></li>
+
 <li class="dropdown"><a type="button" data-toggle="dropdown" />
 	<span class="glyphicon glyphicon-list"></span> View List
 	<ul class="dropdown-menu">
-	  <li><a href="view_list_teacher.php">Teacher</a></li>
-      <li><a href="view_list_student.php">Student</a></li>
-      <li><a href="view_list_parent.php">Parent</a></li>
+	  <li><a href="admView_teacher.php">Teacher</a></li>
+      <li><a href="admView_student.php">Student</a></li>
+      <li><a href="admView_parent.php">Parent</a></li>
     </ul>
 </li>
 <li class="dropdown"><a type="button" data-toggle="dropdown" />
 	<span class="glyphicon glyphicon-user"></span> Add Member
 	<ul class="dropdown-menu">
-      <li><a href="add_student.php">Student</a></li>
-      <li><a href="add_parent.php">Parent</a></li>
+      <li><a href="admAdd_student.php">Student</a></li>
+      <li><a href="admAdd_parent.php">Parent</a></li>
+	  <li><a href="admAdd_teacher.php">Teacher</a></li>
+    </ul>
+</li>
+<li class="dropdown"><a type="button" data-toggle="dropdown" />
+	<span class="glyphicon glyphicon-user"></span> Equipment
+	<ul class="dropdown-menu">
+      <li><a href="admView_subject.php">Subject</a></li>
+      <li><a href="admView_class.php">Class</a></li>
+	  <li><a href="admView_session.php">Session</a></li>
+	  <li><a href="admView_stream.php">Stream</a></li>
     </ul>
 </li>
 
-<li>
-<form name="search" method="post" action="search_name.php" role="search" class="nav navbar-nav">
-<div class="form-group">
-<input type="text" name="searchName" class="form-control" onkeyup="showResult(this.value)" placeholder="Type student name" autocomplete="off"/>
-<div id="livesearch" style="position: absolute;"></div>
-</div>
-</li>
-<li>
-<button type="submit" name="submit" id="submit" value="search" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Search Member by Name"><span class="glyphicon glyphicon-search"></span> Search </button>
-</form>
-</li>
+
 </ul>
 </div>
 </div>

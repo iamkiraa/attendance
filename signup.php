@@ -16,16 +16,16 @@ header("Location: parent.php");
 }
 require_once 'connection.php';
 if(isset($_POST['btn-signup'])) {
-$icno=mysqli_real_escape_string($connection,$_POST['icno']);
+$ID = mysqli_real_escape_string($connection,$_POST['ID']);
 $username=mysqli_real_escape_string($connection,$_POST['username']);
 $password=mysqli_real_escape_string($connection,$_POST['password']);
 $level = mysqli_real_escape_string($connection,$_POST['level']);
-$check_icno = $connection->query("SELECT icno FROM user WHERE icno='$icno'");
-$countic = $check_icno->num_rows;
+$check_ID = $connection->query("SELECT ID FROM user WHERE ID ='$ID'");
+$countic = $check_ID->num_rows;
 $check_username = $connection->query("SELECT username FROM user WHERE username='$username'");
 $countun = $check_username->num_rows;
 if (($countic==0) && ($countun==0)){
-$query = "INSERT INTO user(username,password,level,icno) VALUES ('$username','$password','$level','$icno')";
+$query = "INSERT INTO user(username,password,level,ID) VALUES ('$username','$password','$level','$ID')";
 if ($connection->query($query)) {
 $msg = "<div class='alert alert-success'>
 <span class='glyphicon glyphicon-info-sign'></span> &nbsp; Successfully registered !
@@ -73,9 +73,9 @@ $connection->close();
 <div class="col-sm-6 col-sm-offset-3 form-box">
 <div class="form-top">
 <div class="form-top-left">
-<h3>Arau High School</h3>
+<h2>SMK SYED SIRAJUDDIN</h2>
 <h3>Registration System</h3>
-<h4>Sign-Up</h4>
+<h4>Please Sign-Up</h4>
 </div>
 <div class="form-top-right">
 <i class="fa fa-key"></i>
@@ -90,7 +90,7 @@ echo $msg;
 }
 ?>
 <div class="form-group">
-<input type="text" class="form-control" placeholder="IC Number - without dash -" name="icno" required />
+<input type="text" class="form-control" placeholder="IC Number - without dash -" name="ID" required />
 </div>
 <div class="form-group">
 <input type="text" class="form-control" placeholder="Username" name="username" required />
@@ -102,7 +102,7 @@ echo $msg;
 <div class="form-group">
 <select name="level" class="form-control" required>
 <option value="">Choose User Level</option>
-<option value="Administrator">Admin</option>
+<option value="Administrator">Administrator</option>
 <option value="Teacher">Teacher</option>
 <option value="Parent">Parent</option>
 </select>
@@ -111,7 +111,7 @@ echo $msg;
 <button type="submit" class="btn btn-default" name="btn-signup">
 <span class="glyphicon glyphicon-log-in"></span> &nbsp; Create Account
 </button>
-<hr />
+<hr/>
 <a href="login.php" class="btn btn-default">Log In Here</a>
 <a href="index.php" class="btn btn-default">Back</a>
 </div>
@@ -130,4 +130,4 @@ echo $msg;
 <!--[if lt IE 10]>
 <script src="assets/js/placeholder.js"></script>
 <![endif]-->
-</body>
+</body> icno

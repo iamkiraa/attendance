@@ -1,10 +1,11 @@
 <?php
+
+//check if user has login
+include('check_parent.php'); //load header content for Parent page
+include('header_parent.php'); //load header content for parent page
+include("connection.php"); // connection to database
 session_start();
 $parentID = $_SESSION['parentID'];
-//check if user has login
-include('check_parent.php'); //load header content for teacher page
-include('header_parent.php'); //load header content for teacher page
-include("connection.php"); // connection to database
 ?>
 <div class="container" style="margin-top:50px">
 <div class="content">
@@ -65,7 +66,7 @@ $row = mysqli_fetch_assoc($sql);
 </table>
 
 <a href="parent.php" class="btn btn-sm btn-info"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Back</a>
-<a href="edit_parent.php?parentID=<?php echo $row['parentID']; ?>" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Update Data</a>
+<a href="parUpdate_parent.php?parentID=<?php echo $row['parentID']; ?>" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Update Data</a>
 <?php
 if(($row['status']) == 'Active'){
 echo '<a href="print_letter.php?parentID='.$row['parentID'].'" target="_blank" title="Print Letter" data-toggle="tooltip" class="btn btn-sm btn-primary"><span class="glyphicon glyphicon-print" aria-hidden="true"></span> Print Letter</a>';

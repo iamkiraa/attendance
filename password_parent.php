@@ -9,17 +9,17 @@ include("connection.php"); // connection to database
 <hr />
 <?php
 if(isset($_POST['change'])){ // if change button clicked
-$icno = $_SESSION['icno'];
+$parentID = $_SESSION['parentID'];
 $password = $_POST['password']; // assign password with md5 encryption
 $password1 = $_POST['password1'];
 $password2 = $_POST['password2'];
-$check = mysqli_query($connection, "SELECT * FROM user WHERE icno='$icno' AND password='$password'"); // select query ic number and password
+$check = mysqli_query($connection, "SELECT * FROM user WHERE ID='$ID' AND password='$password'"); // select query ic number and password
 if(mysqli_num_rows($check) == 0){ // if password and ic number match
 echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Wrong password. Try again.</div>';
 }else{
 if($password1 == $password2){ // if password 1 same as password 2
 if(strlen($password1) >= 6){ // minimum 6 character
-$update = mysqli_query($connection, "UPDATE user SET password='$password1' WHERE icno='$icno'"); // query update password
+$update = mysqli_query($connection, "UPDATE user SET password='$password1' WHERE ID='$ID'"); // query update password
 if($update){ // if update query successful
 echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Password change successful. <a href="login.php"><- Login</a></div>';
 }else{ // if updating failed

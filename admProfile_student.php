@@ -59,20 +59,11 @@ echo '<div class="alert alert-info alert-dismissable"><button type="button" clas
 <td><?php echo $row['address']; ?></td>
 </tr>
 <tr>
-<th>Teacher</th>
-<td><?php echo $row['teacher']; ?></td>
-</tr>
-<tr>
-<th>Class</th>
-<td><?php echo $row['class']; ?></td>
-</tr>
-<tr>
-<th>Subject</th>
-<td><?php echo $row['subject']; ?></td>
-</tr>
-<tr>
 <th>Parent Name</th>
 <td><?php echo $row['parentName']; ?></td>
+</tr>
+<th>Email</th>
+<td><?php echo $row['email']; ?></td>
 </tr>
 <tr>
 <th>Profile Image</th>

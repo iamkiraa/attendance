@@ -68,7 +68,7 @@ xmlhttp.send();
 <li class="active"><a href="admin.php"><span class="glyphicon glyphicon-home"></span> Admin Home</a></li>
 
 <li class="dropdown"><a type="button" data-toggle="dropdown" />
-	<span class="glyphicon glyphicon-list"></span> View List
+	<span class="glyphicon glyphicon-list"></span> View List <span class="caret"></span>
 	<ul class="dropdown-menu">
 	  <li><a href="admView_teacher.php">Teacher</a></li>
       <li><a href="admView_student.php">Student</a></li>
@@ -76,7 +76,7 @@ xmlhttp.send();
     </ul>
 </li>
 <li class="dropdown"><a type="button" data-toggle="dropdown" />
-	<span class="glyphicon glyphicon-user"></span> Add Member
+	<span class="glyphicon glyphicon-user"></span> Add Member <span class="caret"></span>
 	<ul class="dropdown-menu">
       <li><a href="admAdd_student.php">Student</a></li>
       <li><a href="admAdd_parent.php">Parent</a></li>
@@ -84,7 +84,7 @@ xmlhttp.send();
     </ul>
 </li>
 <li class="dropdown"><a type="button" data-toggle="dropdown" />
-	<span class="glyphicon glyphicon-user"></span> Equipment
+	<span class="glyphicon glyphicon-user"></span> Equipment <span class="caret"></span>
 	<ul class="dropdown-menu">
       <li><a href="admView_subject.php">Subject</a></li>
       <li><a href="admView_class.php">Class</a></li>

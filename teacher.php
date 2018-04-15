@@ -6,6 +6,8 @@ include('header_teacher.php');
 <div class="panel panel-default container" style="margin-top:100px">
 <div class="panel-heading">
 <h1 style="text-align: center;">- Please select all the requirements -</h1>
+</div>
+</div>
 <hr/>
 <?php
 if(isset($_POST['add'])){ // if button Add clicked
@@ -32,58 +34,89 @@ echo '<div class="alert alert-danger alert-dismissable"><button type="button" cl
 <!-- Form for collecting member data -->
 <form class="form-horizontal" action="" method="post">
 
-<div class="form-group" >
-<label class="col-sm-3 control-label">Session</label>
-<div class="col-sm-2">
-<select id="se" name="session" class="form-control" required>
-<option value=""> - Select Session - </option>
-<option id="se1" value="2018" onclick="check()">2018</option>
-<option id="se2" value="2019" onclick="check()">2019</option>
-<option id="se3" value="2020">2020</option>
-<option id="se4" value="2021">2021</option>
-</select>
+<div class="form-group">
+<label class="col-sm-4 control-label">Session</label>
+<div class="col-sm-4">
+<input type="text" name="sessionID" class="form-control" placeholder="Session" required>
 </div>
 </div>
 
 <div class="form-group">
-<label class="col-sm-3 control-label">Class</label>
-<div class="col-sm-2">
+<label class="col-sm-4 control-label">Class</label>
+<div class="col-sm-4">
 <select name="className" class="form-control" required>
 <option value=""> - Select Class - </option>
-<option value="Form 1">Form 1</option>
-<option value="Form 2">Form 2</option>
-<option value="Form 3">Form 3</option>
-<option value="Form 4">Form 4</option>
-<option value="Form 5">Form 5</option>
-<option value="Form 6">Form 6</option>
+<option value=""> - Form 1 - </option>
+<option value="1 KRK">1 KRK</option>
+<option value="1 Bestari">1 Bestari</option>
+<option value="1 Cekal">1 Cekal</option>
+<option value="1 Dinamik">1 Dinamik</option>
+<option value="1 Fitrah">1 Fitrah</option>
+<option value="1 Gigih">1 Gigih</option>
+<option value=""> - Form 2 - </option>
+<option value="2 KRK">2 KRK</option>
+<option value="2 Bestari">2 Bestari</option>
+<option value="2 Cekal">2 Cekal</option>
+<option value="2 Dinamik">2 Dinamik</option>
+<option value="2 Fitrah">2 Fitrah</option>
+<option value="2 Gigih">2 Gigih</option>
+<option value=""> - Form 3 - </option>
+<option value="3 KRK">3 KRK</option>
+<option value="3 Bestari">3 Bestari</option>
+<option value="3 Cekal">3 Cekal</option>
+<option value="3 Dinamik">3 Dinamik</option>
+<option value="3 Fitrah">3 Fitrah</option>
+<option value="3 Gigih">3 Gigih</option>
+<option value=""> - Form 4 - </option>
+<option value="4 Sains">4 Sains</option>
+<option value="4 Arif">4 Arif</option>
+<option value="4 Bestari">4 Bestari</option>
+<option value="4 Cekal">4 Cekal</option>
+<option value="4 Dinamik">4 Dinamik</option>
+<option value="4 Fitrah">4 Fitrah</option>
+<option value=""> - Form 5 - </option>
+<option value="5 Sains">5 Sains</option>
+<option value="5 Arif">5 Arif</option>
+<option value="5 Bestari">5 Bestari</option>
+<option value="5 Cekal">5 Cekal</option>
+<option value="5 Dinamik">5 Dinamik</option>
+<option value="5 Fitrah">5 Fitrah</option>
 </select>
 </div>
 </div>
 
 <div class="form-group">
-<label class="col-sm-3 control-label">Subject</label>
-<div class="col-sm-2">
-<select id="s" name="subjectName" class="form-control" required>
+<label class="col-sm-4 control-label">Subject</label>
+<div class="col-sm-4">
+<select name="subjectName" class="form-control" required>
 <option value=""> - Select Subject - </option>
-<div id="s1">
-<option value="BM">BM</option>
-</div>
-<option id="s3" value="BI">BI</option>
-<option id="s4" value="MATEMATIK">MATEMATIK</option>
-<option id="s5" value="SAINS">SAINS</option>
-<option id="s6" value="PENDIDIKAN ISLAM">PENDIDIKAN ISLAM</option>
-<option id="s7" value="SEJARAH">SEJARAH</option>
+<option value="Bahasa Melayu">Bahasa Melayu</option>
+<option value="Bahasa Inggeris">Bahasa Inggeris</option>
+<option value="Matematik">Matematik</option>
+<option value="Sains">Sains</option>
+<option value="Pendidikan Islam">Pendidikan Islam</option>
+<option value="Matematik Tambahan">Matematik Tambahan</option>
+<option value="Kimia">Kimia</option>
+<option value="Fizik">Fizik</option>
+<option value="Biologi">Biologi</option>
+<option value="Ekonomi">Ekonomi</option>
+<option value="Perkaunan">Perakaunan</option>
+<option value="Perniagaan">Perniagaan</option>
+<option value="Sastera">Sastera</option>
+<option value="Rekacipta">Rekacipta</option>
+<option value="Perdagangan">Perdagangan</option>
+<option value="KHB">KHB</option>
 </select>
 </div>
 </div>
 
 <div class="form-group">
-<label class="col-sm-3 control-label">&nbsp;</label>
-<div class="col-sm-6">
+<label class="col-sm-5 control-label">&nbsp;</label>
+<div class="col-sm-4">
 <input type="submit" name="add" href="attendance.php" class="btn btn-sm btn-primary" value="Submit" data-toggle="tooltip" title="The Requirements Added">
-
 </div>
 </div>
+<hr/>
 </form> <!-- /form -->
 </div> <!-- /.content -->
 </div> <!-- /.container -->

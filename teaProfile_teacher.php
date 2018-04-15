@@ -50,27 +50,20 @@ $row = mysqli_fetch_assoc($sql);
 <th>Email</th>
 <td><?php echo $row['email']; ?></td>
 </tr>
-<tr>
-<th>Class</th>
-<td><?php echo $row['class']; ?></td>
-</tr>
-<tr>
-<th>Salary</th>
-<td><?php echo $row['salary']; ?></td>
-</tr>
+
 <tr>
 <th>Profile Image</th>
 <td><img src="<?php echo $row['upload']; ?>" height="300px"></td>
 </tr>
 </table>
 
+<div class="form-group">
+<label class="col-sm-5 control-label">&nbsp;</label>
+<div class="col-sm-7">
 <a href="teacher.php" class="btn btn-sm btn-info"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Back</a>
 <a href="teaUpdate_teacher.php?teacherID=<?php echo $row['teacherID']; ?>" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Update Data</a>
-<?php
-if(($row['status']) == 'Active'){
-echo '<a href="print_letter.php?teacherID='.$row['teacherID'].'" target="_blank" title="Print Letter" data-toggle="tooltip" class="btn btn-sm btn-primary"><span class="glyphicon glyphicon-print" aria-hidden="true"></span> Print Letter</a>';
-}
-?>
+</div>
+</div>
 
 </div> <!-- /.content -->
 </div> <!-- /.container -->

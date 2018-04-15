@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Teacher Page</title>
+<title>Administrator Page</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,17 +12,11 @@
 <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
 <link rel="stylesheet" href="assets/css/style.css" >
 <!-- JS -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="assets/js/bootstrap.min.js"></script>
 <script src="assets/js/tooltip.js"></script>
 <script src="assets/js/bootstrap-datepicker.js"></script>
-
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-
 <script>
-
 $(document).ready(function(){
 $('[data-toggle="tooltip"]').tooltip();
 });
@@ -65,42 +59,49 @@ xmlhttp.send();
 <span class="icon-bar"></span>
 <span class="icon-bar"></span>
 </button>
-<a class="navbar-brand hidden-xs hidden-sm" href="index.php" target="_blank">SMK SYED SIRAJUDDINs</a>
-
+<a class="navbar-brand hidden-xs hidden-sm" href="index.php" target="_blank">SMK SYED SIRAJUDDIN</a>
 </div>
+
 <div class="collapse navbar-collapse" id="myNavbar">
 <ul class="nav navbar-nav navbar-right">
-  <li class="active"><a href="teacher.php"><span class="glyphicon glyphicon-home"></span> Teacher Home</a></li>
-  <li>
-  <a href="add_teacher_data.php" data-toggle="tooltip" data-placement="bottom" title="Add Teacher Information"><span class="glyphicon glyphicon-pencil"></span> Add Teacher Data</a>
-  </li>
-  <li>
-  <a href="teaProfile_teacher.php" data-toggle="tooltip" data-placement="bottom" title="View Teacher Details"><span class="glyphicon glyphicon-list"></span> View Teacher Profile</a>
-  </li>
-
-  <li class="dropdown">
-    <a type="button" data-toggle="dropdown" />
-	    <span class="glyphicon glyphicon-list"></span> View List
-	    <ul class="dropdown-menu">
+<li class="active"><a href="teacher.php"><span class="glyphicon glyphicon-home"></span>Home</a></li>
+<li>
+  <a href="add_teacher_data.php" data-toggle="tooltip" data-placement="bottom" title="Teacher Information"><span class="glyphicon glyphicon-pencil"></span> Add Teacher Data</a>
+</li>
+<li>
+  <a href="teaProfile_teacher.php" data-toggle="tooltip" data-placement="bottom" title="Teacher Details"><span class="glyphicon glyphicon-list"></span>Teacher Profile</a>
+</li>
+<li class="dropdown"><a type="button" data-toggle="dropdown" />
+	 Register Student	 <span class="caret"></span>
+	<ul class="dropdown-menu">
+      <li><a href="teaReg_student.php">Student Registration</a></li>
+      <li><a href="teaReg_view.php">View Student</a></li>
+    </ul>
+</li>
+<li class="dropdown"><a type="button" data-toggle="dropdown" />
+	 View List <span class="caret"></span>
+	<ul class="dropdown-menu">
       <li><a href="teaView_student.php">Student</a></li>
       <li><a href="teaView_parent.php">Parent</a></li>
     </ul>
 </li>
 <li class="dropdown"><a type="button" data-toggle="dropdown" />
-	<span class="glyphicon glyphicon-user"></span> Add Member
+	 Add Member <span class="caret"></span>
 	<ul class="dropdown-menu">
       <li><a href="teaAdd_student.php">Student</a></li>
       <li><a href="teaAdd_parent.php">Parent</a></li>
     </ul>
 </li>
-<li class="dropdown"><a type="button" data-toggle="dropdown" />
-	<span class="glyphicon glyphicon-list-alt"></span> Attendance
+<li class="dropdown"><a type="button" data-toggle="dropdown"/>
+	 Equipment <span class="caret"></span>
 	<ul class="dropdown-menu">
-      <li><a href="attendance.php">Do Attendance</a></li>
-      <li><a href="#">Overall Report</a></li>
-      <li><a href="#">Monthly Report</a></li>
+      <li><a href="attendance.php">Attendance</a></li>
+      <li><a href="">Report</a></li>
+	  
+
     </ul>
 </li>
+
 </ul>
 </div>
 </div>
@@ -112,4 +113,4 @@ Welcome, <i><?php echo $_SESSION['username']; ?></i>
 <a class="navbar-link" href="logout.php">Logout</a>
 </div>
 </div>
-</nav> 
+</nav>

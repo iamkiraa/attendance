@@ -59,10 +59,6 @@ echo '<div class="alert alert-info alert-dismissable"><button type="button" clas
 <td><?php echo $row['email']; ?></td>
 </tr>
 <tr>
-<th>Class</th>
-<td><?php echo $row['class']; ?></td>
-</tr>
-<tr>
 <th>Salary</th>
 <td><?php echo $row['salary']; ?></td>
 </tr>

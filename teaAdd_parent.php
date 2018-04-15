@@ -4,38 +4,6 @@ include('header_teacher.php'); //load header content for Teacher page
 include("connection.php"); // connection to database
 ?>
 
-<style>
-body {margin:0;}
-
-.navbar {
-  overflow: hidden;
-  background-color: #333;
-  position: fixed;
-  top: 0;
-  width: 100%;
-}
-
-.navbar a {
-  float: left;
-  display: block;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-.navbar a:hover {
-  background: #ddd;
-  color: black;
-}
-
-.main {
-  padding: 16px;
-  margin-top: 30px;
-  height: 1500px; /* Used in this example to enable scrolling */
-}
-</style>
 
 &nbsp;
 
@@ -76,22 +44,22 @@ echo '<div class="alert alert-danger alert-dismissable"><button type="button" cl
 <!-- Form for collecting member data -->
 <form class="form-horizontal" action="" method="post">
 <div class="form-group">
-<label class="col-sm-3 control-label">IC No</label>
-<div class="col-sm-2">
+<label class="col-sm-4 control-label">IC No</label>
+<div class="col-sm-4">
 <input type="text" name="parentID" class="form-control" placeholder="IC No" required>
 </div>
 </div>
 
 <div class="form-group">
-<label class="col-sm-3 control-label">Name</label>
+<label class="col-sm-4 control-label">Name</label>
 <div class="col-sm-4">
 <input type="text" name="name" class="form-control" placeholder="Name" required>
 </div>
 </div>
 
 <div class="form-group">
-<label class="col-sm-3 control-label">Gender</label>
-<div class="col-sm-2">
+<label class="col-sm-4 control-label">Gender</label>
+<div class="col-sm-4">
 <select name="gender" class="form-control" required>
 <option value=""> - Select Gender - </option>
 <option value="Male">Male</option>
@@ -101,36 +69,36 @@ echo '<div class="alert alert-danger alert-dismissable"><button type="button" cl
 </div>
 
 <div class="form-group">
-<label class="col-sm-3 control-label">Date of Birth</label>
-<div class="col-sm-3">
+<label class="col-sm-4 control-label">Date of Birth</label>
+<div class="col-sm-4">
 <input type="text" name="dob" class="input-group datepicker form-control" date="" data-date-format="dd-mm-yyyy" placeholder="dd-mm-yyyy" required>
 </div>
 </div>
 
 <div class="form-group">
-<label class="col-sm-3 control-label">Address</label>
-<div class="col-sm-3">
+<label class="col-sm-4 control-label">Address</label>
+<div class="col-sm-4">
 <textarea name="address" class="form-control" placeholder="Address"></textarea>
 </div>
 </div>
 
 <div class="form-group">
-<label class="col-sm-3 control-label">Telephone No</label>
-<div class="col-sm-3">
+<label class="col-sm-4 control-label">Telephone No</label>
+<div class="col-sm-4">
 <textarea name="phone" class="form-control" placeholder="Phone"></textarea>
 </div>
 </div>
 
 <div class="form-group">
-<label class="col-sm-3 control-label">Email</label>
+<label class="col-sm-4 control-label">Email</label>
 <div class="col-sm-4">
 <input type="text" name="email" class="form-control" placeholder="Email" required>
 </div>
 </div>
 
 <div class="form-group">
-<label class="col-sm-3 control-label">Occupation</label>
-<div class="col-sm-2">
+<label class="col-sm-4 control-label">Occupation</label>
+<div class="col-sm-4">
 <select name="occu" class="form-control" required>
 <option value=""> - Select Occupation - </option>
 <option value="Retired">Retired</option>
@@ -144,16 +112,16 @@ echo '<div class="alert alert-danger alert-dismissable"><button type="button" cl
 </div>
 
 <div class="form-group">
-	<label class="col-sm-3 control-label">Child Name</label>
-    <div class="col-sm-3">
+	<label class="col-sm-4 control-label">Child Name</label>
+    <div class="col-sm-4">
     <input type="text" name="childName" class="form-control" placeholder="Child Name" required>
     </div>
 </div>
 
 
           <div class="form-group">
-            <label class="col-sm-3 control-label">&nbsp;</label>
-            <div class="col-sm-6"></br>
+            <label class="col-sm-5 control-label">&nbsp;</label>
+            <div class="col-sm-4"></br>
               <input type="submit" name="add" class="btn btn-sm btn-primary" value="Add" data-toggle="tooltip" title="Add Parent data">
               <a href="view_users.php" class="btn btn-sm btn-danger" data-toggle="tooltip" title="Cancel">Cancel</a>
             </div>

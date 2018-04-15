@@ -39,9 +39,7 @@ echo '<div class="alert alert-danger alert-dismissable"><button type="button" cl
 <th>Birth Certificate</th>
 <th>Race</th>
 <th>Address</th>
-<th>Teacher's Subject</th>
 <th>Class</th>
-<th>Subject</th>
 <th>Parent Name</th>
 <th>Tools</th>
 </tr>
@@ -57,15 +55,13 @@ echo '
 <tr>
 <td>'.$no.'</td>
 <td>'.$row['studentID'].'</td>
-<td><a href="student_teaProfile.php?studentID='.$row['studentID'].'">'.$row['name'].'</a></td>
+<td><a href="teaProfile_student.php?studentID='.$row['studentID'].'">'.$row['name'].'</a></td>
 <td>'.$row['gender'].'</td>
 <td>'.$row['dob'].'</td>
 <td>'.$row['birthCer'].'</td>
 <td>'.$row['race'].'</td>
 <td>'.$row['address'].'</td>
-<td>'.$row['teacher'].'</td>
 <td>'.$row['class'].'</td>
-<td>'.$row['subject'].'</td>
 <td>'.$row['parentName'].'</td>
 
 <td>

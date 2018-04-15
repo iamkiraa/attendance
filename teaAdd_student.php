@@ -4,38 +4,7 @@ include('header_teacher.php'); //load header content for Teacher page
 include("connection.php"); // connection to database
 ?>
 
-<style>
-body {margin:0;}
 
-.navbar {
-  overflow: hidden;
-  background-color: #333;
-  position: fixed;
-  top: 0;
-  width: 100%;
-}
-
-.navbar a {
-  float: left;
-  display: block;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-.navbar a:hover {
-  background: #ddd;
-  color: black;
-}
-
-.main {
-  padding: 16px;
-  margin-top: 30px;
-  height: 1500px; /* Used in this example to enable scrolling */
-}
-</style>
 
 &nbsp;
 
@@ -43,7 +12,7 @@ body {margin:0;}
 <div class="container" style="margin-top:50px">
 <div class="content">
 <h2>Add New Student &raquo;</h2>
-<hr />
+<hr/>
 <?php
 if(isset($_POST['add'])){ // if button Add clicked
 
@@ -78,22 +47,22 @@ echo '<div class="alert alert-danger alert-dismissable"><button type="button" cl
 <!-- Form for collecting member data -->
 <form class="form-horizontal" action="" method="post">
 <div class="form-group">
-<label class="col-sm-3 control-label">IC No</label>
-<div class="col-sm-2">
+<label class="col-sm-4 control-label">IC No</label>
+<div class="col-sm-4">
 <input type="text" name="studentID" class="form-control" placeholder="IC No" required>
 </div>
 </div>
 
 <div class="form-group">
-<label class="col-sm-3 control-label">Name</label>
+<label class="col-sm-4 control-label">Name</label>
 <div class="col-sm-4">
 <input type="text" name="name" class="form-control" placeholder="Name" required>
 </div>
 </div>
 
 <div class="form-group">
-<label class="col-sm-3 control-label">Gender</label>
-<div class="col-sm-2">
+<label class="col-sm-4 control-label">Gender</label>
+<div class="col-sm-4">
 <select name="gender" class="form-control" required>
 <option value=""> - Select Gender - </option>
 <option value="Male">Male</option>
@@ -103,49 +72,42 @@ echo '<div class="alert alert-danger alert-dismissable"><button type="button" cl
 </div>
 
 <div class="form-group">
-<label class="col-sm-3 control-label">Date of Birth</label>
-<div class="col-sm-3">
+<label class="col-sm-4 control-label">Date of Birth</label>
+<div class="col-sm-4">
 <input type="text" name="dob" class="input-group datepicker form-control" date="" data-date-format="dd-mm-yyyy" placeholder="dd-mm-yyyy" required>
 </div>
 </div>
 
 <div class="form-group">
-<label class="col-sm-3 control-label">Birth Certificate</label>
+<label class="col-sm-4 control-label">Birth Certificate</label>
 <div class="col-sm-4">
 <input type="text" name="birthCer" class="form-control" placeholder="Birth Certificate" required>
 </div>
 </div>
 
 <div class="form-group">
-<label class="col-sm-3 control-label">Race</label>
-<div class="col-sm-2">
+<label class="col-sm-4 control-label">Race</label>
+<div class="col-sm-4">
 <select name="race" class="form-control" required>
 <option value=""> - Select Race - </option>
 <option value="Malay">Malay</option>
 <option value="Chinese">Chinese</option>
-<option value="Chinese">Indian</option>
-<option value="Chinese">BumiPutera</option>
+<option value="Indian">Indian</option>
+<option value="BumiPutera">BumiPutera</option>
 </select>
 </div>
 </div>
 
 <div class="form-group">
-<label class="col-sm-3 control-label">Address</label>
-<div class="col-sm-3">
+<label class="col-sm-4 control-label">Address</label>
+<div class="col-sm-4">
 <textarea name="address" class="form-control" placeholder="Address"></textarea>
 </div>
 </div>
 
 <div class="form-group">
-<label class="col-sm-3 control-label">Teacher's Subject</label>
+<label class="col-sm-4 control-label">Class</label>
 <div class="col-sm-4">
-<input type="text" name="teacher" class="form-control" placeholder="Teacher Name" required>
-</div>
-</div>
-
-<div class="form-group">
-<label class="col-sm-3 control-label">Class</label>
-<div class="col-sm-2">
 <select name="class" class="form-control" required>
 <option value=""> - Select Class - </option>
 <option value="Form 1">Form 1</option>
@@ -158,24 +120,10 @@ echo '<div class="alert alert-danger alert-dismissable"><button type="button" cl
 </div>
 </div>
 
-<div class="form-group">
-<label class="col-sm-3 control-label">Subject</label>
-<div class="col-sm-2">
-<select name="subject" class="form-control" required>
-<option value=""> - Select Subject - </option>
-<option value="BM">BM</option>
-<option value="BI">BI</option>
-<option value="MATEMATIK">MATEMATIK</option>
-<option value="SAINS">SAINS</option>
-<option value="PENDIDIKAN ISLAM">PENDIDIKAN ISLAM</option>
-<option value="SEJARAH">SEJARAH</option>
-</select>
-</div>
-</div>
 
 <div class="form-group">
-    <label class="col-sm-3 control-label">Parent Name</label>
-    <div class="col-sm-3">
+    <label class="col-sm-4 control-label">Parent Name</label>
+    <div class="col-sm-4">
     <input type="text" name="parentName" class="form-control" placeholder="Parent Name" required>
     </div>
 </div>
@@ -183,12 +131,13 @@ echo '<div class="alert alert-danger alert-dismissable"><button type="button" cl
 		  
 
           <div class="form-group">
-            <label class="col-sm-3 control-label">&nbsp;</label>
-            <div class="col-sm-6">
+            <label class="col-sm-5 control-label">&nbsp;</label>
+            <div class="col-sm-4">
               <input type="submit" name="add" class="btn btn-sm btn-primary" value="Add" data-toggle="tooltip" title="Add Student data">
               <a href="view_users.php" class="btn btn-sm btn-danger" data-toggle="tooltip" title="Cancel">Cancel</a>
             </div>
           </div>
+		  <hr/>
         </form> <!-- /form -->
       </div> <!-- /.content -->
     </div> <!-- /.container -->

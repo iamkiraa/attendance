@@ -23,6 +23,24 @@ include("connection.php"); // connection to database
 	
 	<a href="admAdd_class.php" class="btn btn-primary">Insert New Class</a>
 	
+<?php
+
+if(isset($_GET['action']) == 'delete'){ // if remove button clicked
+$classID = $_GET['classID']; // get classID value
+$check = mysqli_query($connection, "SELECT * FROM class WHERE classID='$classID'"); // query for selected class id
+if(mysqli_num_rows($check) == 0){ // if no classID selected
+echo '<div class="alert alert-info alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> No data found..</div>'; // display message no data found.'
+}else{ // if there are data found
+$delete = mysqli_query($connection, "DELETE FROM class WHERE classID='$classID'"); // query for removing data
+if($delete){ // if delete query succesfull
+echo '<div class="alert alert-primary alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Data removed successfully.</div>'; // display message data removed'
+}else{ // if delete query unsuccesfull
+echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Cannot remove data.</div>'; // display message cannot remove data'
+}
+}
+}
+?>	
+	
 	
 <table class="table">
 <thead>
@@ -30,15 +48,15 @@ include("connection.php"); // connection to database
 	<th>No</th>
 	<th>Class ID</th>
 	<th>Class Name</th>
-	<th>Teacher ID</th>
-	<th>Teacher Name</th>
-	<th>Tools</th>
+	<th>Stream Name</th>
+	<th>Subject ID</th>
+	<th>Operation</th>
 </tr>
 
 </thead>
 	<tbody>
 	<?php
-	$sql = mysqli_query($connection, "SELECT * FROM student ORDER BY studentID ASC");
+	$sql = mysqli_query($connection, "SELECT * FROM class ORDER BY classID ASC");
 	if(mysqli_num_rows($sql) == 0){
 	echo '<tr><td colspan="14">No data retrieved..</td></tr>'; // if no data retrieved from database
 	}else{ // if there are data
@@ -49,11 +67,10 @@ include("connection.php"); // connection to database
 		<td>'.$no.'</td>
 		<td>'.$row['classID'].'</td>
 		<td>'.$row['className'].'</td>
-		<td>'.$row['teacherID'].'</td>		
-		<td>'.$row['TeacherName'].'</td>
+		<td>'.$row['streamID'].'</td>
+		<td>'.$row['subjectID'].'</td>		
 		<td>
-			<a href="admUpdate_class.php?studentID='.$row['studentID'].'" title="Update Data" data-toggle="tooltip" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
-			<a href="admView_student.php?action=delete&studentID='.$row['studentID'].'" title="Remove Data" data-toggle="tooltip" onclick="return confirm(\'Are you sure to remove this data for '.$row['name'].'?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+			<a href="admView_class.php?action=delete&classID='.$row['classID'].'" title="Remove Data" data-toggle="tooltip" onclick="return confirm(\'Are you sure to remove this data for '.$row['classID'].'?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
 		</td>	
 	</tr>
 		

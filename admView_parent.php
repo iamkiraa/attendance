@@ -6,7 +6,7 @@ include("connection.php"); // connction to database
 <div class="container" style="margin-top:50px">
 <div class="content">
 <h2>List of Parent</h2>
-<hr />
+<hr/>
 <?php
 
 if(isset($_GET['action']) == 'delete'){ // if remove button clicked

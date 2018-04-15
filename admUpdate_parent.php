@@ -80,14 +80,14 @@ echo '<div class="alert alert-success alert-dismissable"><button type="button" c
 <!-- Form for updating data -->
 <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
 <div class="form-group">
-<label class="col-sm-3 control-label">IC No</label>
-<div class="col-sm-2">
+<label class="col-sm-4 control-label">IC No</label>
+<div class="col-sm-4">
 <input type="text" name="parentID" value="<?php echo $row ['parentID']; ?>" class="form-control" placeholder="IC No" disabled>
 </div>
 </div>
 
 <div class="form-group">
-<label class="col-sm-3 control-label">Name</label>
+<label class="col-sm-4 control-label">Name</label>
 <div class="col-sm-4">
 <input type="text" name="name" value="<?php echo $row ['name']; ?>" 
 class="form-control" placeholder="Name" required>
@@ -95,8 +95,8 @@ class="form-control" placeholder="Name" required>
 </div>
 
 <div class="form-group">
-<label class="col-sm-3 control-label">Gender</label>
-<div class="col-sm-2">
+<label class="col-sm-4 control-label">Gender</label>
+<div class="col-sm-4">
 <select name="gender" class="form-control" required>
 <option value="<?php echo $row['gender']; ?>"><?php echo $row['gender']; ?></option>
 <option value="Male">Male</option>
@@ -106,36 +106,36 @@ class="form-control" placeholder="Name" required>
 </div>
 
 <div class="form-group">
-<label class="col-sm-3 control-label">Date of Birth</label>
+<label class="col-sm-4 control-label">Date of Birth</label>
 <div class="col-sm-4">
 <input type="text" name="dob" value="<?php echo $row ['dob']; ?>" class="input-group datepicker form-control" date="" data-date-format="dd-mm-yyyy" placeholder="dd-mm-yyyy" required>
 </div>
 </div>
 
 <div class="form-group">
-<label class="col-sm-3 control-label">Address</label>
-<div class="col-sm-3">
+<label class="col-sm-4 control-label">Address</label>
+<div class="col-sm-4">
 <textarea name="address" class="form-control" placeholder="Address"><?php echo $row ['address']; ?></textarea>
 </div>
 </div>
 
 <div class="form-group">
-<label class="col-sm-3 control-label">Telephone</label>
-<div class="col-sm-3">
+<label class="col-sm-4 control-label">Telephone</label>
+<div class="col-sm-4">
 <input type="text" name="phone" value="<?php echo $row ['phone']; ?>" class="form-control" placeholder="Telephone" required>
 </div>
 </div>
 
 <div class="form-group">
-<label class="col-sm-3 control-label">Email</label>
-<div class="col-sm-3">
+<label class="col-sm-4 control-label">Email</label>
+<div class="col-sm-4">
 <input type="email" name="email" value="<?php echo $row ['email']; ?>" class="form-control" placeholder="Email" required>
 </div>
 </div>
 
 <div class="form-group">
-<label class="col-sm-3 control-label">Occupation</label>
-<div class="col-sm-2">
+<label class="col-sm-4 control-label">Occupation</label>
+<div class="col-sm-4">
 <select name="occu" class="form-control" required>
 <option value=""> - Select Occupation - </option>
 <option value="Retired">Retired</option>
@@ -149,15 +149,15 @@ class="form-control" placeholder="Name" required>
 </div>
 
 <div class="form-group">
-<label class="col-sm-3 control-label">Child Name</label>
-<div class="col-sm-3">
+<label class="col-sm-4 control-label">Child Name</label>
+<div class="col-sm-4">
 <input type="childName" name="childName" value="<?php echo $row ['childName']; ?>" class="form-control" placeholder="Child Name" required>
 </div>
 </div>
 
 <div class="form-group">
-<label class="col-sm-3 control-label">Profile Image</label>
-<div class="col-sm-3">
+<label class="col-sm-4 control-label">Profile Image</label>
+<div class="col-sm-4">
     Select image to upload:
     <input id="fileToUpload" type="file" name="fileToUpload" />
 	<br><br>
@@ -166,8 +166,8 @@ class="form-control" placeholder="Name" required>
 </div>
 
 <div class="form-group">
-<label class="col-sm-3 control-label">&nbsp;</label>
-<div class="col-sm-6">
+<label class="col-sm-5 control-label">&nbsp;</label>
+<div class="col-sm-4">
 <input type="submit" name="save" class="btn btn-sm btn-primary" value="Update" data-toggle="tooltip" title="Update member details">
 <a href="admView_parent.php" class="btn btn-sm btn-danger" data-toggle="tooltip" title="Cancel">Cancel</a>
 </div>

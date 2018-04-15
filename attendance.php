@@ -32,9 +32,6 @@ include("connection.php"); // connction to database
 	<th>No</th>
 	<th>IC No</th>
 	<th>Name</th>
-	<th>Father Name</th>
-	<th>Class</th>
-	<th>Subject</th>
 	<th>Status</th>
 	<th>Operation</th>
 </tr>
@@ -53,13 +50,11 @@ include("connection.php"); // connction to database
 		<td>'.$no.'</td>
 		<td>'.$row['studentID'].'</td>
 		<td>'.$row['name'].'</td>
-		<td>'.$row['parentName'].'</td>	
-		<td>'.$row['class'].'</td>
-		<td>'.$row['subject'].'</td>
 		<td>
-		
-			<input name="status?studentID='.$row['studentID'].'" required type="radio" value="Present">Present	
-			<input name="status?studentID='.$row['studentID'].'" required type="radio" value="Absent">Absent
+			<select>
+			<option name="status?studentID='.$row['studentID'].'" required  value="Present">Present	
+			<option name="status?studentID='.$row['studentID'].'" required  value="Absent">Absent
+			</select>
 		</td>
 		<td>
 			<a href="attendance.php?studentID='.$row['studentID'].'" title="Send Message" data-toggle="tooltip" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-phone" aria-hidden="true"></span></a>
@@ -124,7 +119,7 @@ include("connection.php"); // connction to database
 	
 
 </table>
-<input class="btn btn-primary"type="submit" value="Take Attendance">
+<input style="text-align: center;" class="btn btn-primary"type="submit" value="Take Attendance">
 	
 </div>
 <div class="panel-footer"> 

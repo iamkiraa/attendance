@@ -39,21 +39,21 @@ echo '<div class="alert alert-danger alert-dismissable"><button type="button" cl
 <!-- Form for collecting member data -->
 <form class="form-horizontal" action="" method="post">
 <div class="form-group">
-<label class="col-sm-3 control-label">IC No</label>
-<div class="col-sm-2">
+<label class="col-sm-4 control-label">IC No</label>
+<div class="col-sm-4">
 <input type="text" name="teacherID" class="form-control" placeholder="<?php echo $teacherID; ?>" disabled>
 </div>
 </div>
 <div class="form-group">
-<label class="col-sm-3 control-label">Name</label>
+<label class="col-sm-4 control-label">Name</label>
 <div class="col-sm-4">
 <input type="text" name="name" class="form-control" placeholder="Name" required>
 </div>
 </div>
 
 <div class="form-group">
-<label class="col-sm-3 control-label">Gender</label>
-<div class="col-sm-2">
+<label class="col-sm-4 control-label">Gender</label>
+<div class="col-sm-4">
 <select name="gender" class="form-control" required>
 <option value=""> - Select Gender - </option>
 <option value="Male">Male</option>
@@ -62,33 +62,33 @@ echo '<div class="alert alert-danger alert-dismissable"><button type="button" cl
 </div>
 </div>
 <div class="form-group">
-<label class="col-sm-3 control-label">Date of Birth</label>
-<div class="col-sm-3">
+<label class="col-sm-4 control-label">Date of Birth</label>
+<div class="col-sm-4">
 <input type="text" name="dob" class="input-group datepicker form-control" date="" data-date-format="dd-mm-yyyy" placeholder="dd-mm-yyyy" required>
 </div>
 </div>
 <div class="form-group">
-<label class="col-sm-3 control-label">Address</label>
-<div class="col-sm-3">
+<label class="col-sm-4 control-label">Address</label>
+<div class="col-sm-4">
 <textarea name="address" class="form-control" placeholder="Address"></textarea>
 </div>
 </div>
 
 <div class="form-group">
-<label class="col-sm-3 control-label">Telephone No</label>
-<div class="col-sm-3">
+<label class="col-sm-4 control-label">Telephone No</label>
+<div class="col-sm-4">
 <input type="text" name="phone" class="form-control" placeholder="Telephone No" required>
 </div>
 </div>
 <div class="form-group">
-<label class="col-sm-3 control-label">Email</label>
-<div class="col-sm-3">
+<label class="col-sm-4 control-label">Email</label>
+<div class="col-sm-4">
 <input type="email" name="email" class="form-control" placeholder="Email" required>
 </div>
 </div>
 <div class="form-group">
-<label class="col-sm-3 control-label">Class</label>
-<div class="col-sm-2">
+<label class="col-sm-4 control-label">Class</label>
+<div class="col-sm-4">
 <select name="class" class="form-control" required>
 <option value=""> - Select Class - </option>
 <option value="Form 1">Form 1</option>
@@ -100,14 +100,14 @@ echo '<div class="alert alert-danger alert-dismissable"><button type="button" cl
 </div>
 </div>
 <div class="form-group">
-<label class="col-sm-3 control-label">Salary</label>
-<div class="col-sm-3">
+<label class="col-sm-4 control-label">Salary</label>
+<div class="col-sm-4">
 <input type="salary" name="salary" class="form-control" placeholder="Salary" required>
 </div>
 </div>
 <div class="form-group">
-<label class="col-sm-3 control-label">&nbsp;</label>
-<div class="col-sm-6">
+<label class="col-sm-5 control-label">&nbsp;</label>
+<div class="col-sm-4">
 <input type="submit" name="add" class="btn btn-sm btn-primary" value="Save" data-toggle="tooltip" title="Save member data">
 <a href="teacher.php" class="btn btn-sm btn-danger" data-toggle="tooltip" title="Cancel">Cancel</a>
 

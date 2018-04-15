@@ -37,11 +37,7 @@ echo '<div class="alert alert-danger alert-dismissable"><button type="button" cl
 <th>Birth Certificate</th>
 <th>Race</th>
 <th>Address</th>
-<th>Teacher</th>
-<th>Class</th>
-<th>Subject</th>
 <th>Parent Name</th>
-<th>Session</th>
 <th>Tools</th>
 </tr>
 
@@ -57,17 +53,13 @@ echo '
 <tr>
 <td>'.$no.'</td>
 <td>'.$row['studentID'].'</td>
-<td><a href="admProfile_student.php?istudentID='.$row['studentID'].'">'.$row['name'].'</a></td>
+<td><a href="admProfile_student.php?studentID='.$row['studentID'].'">'.$row['name'].'</a></td>
 <td>'.$row['gender'].'</td>
 <td>'.$row['dob'].'</td>
 <td>'.$row['birthCer'].'</td>
 <td>'.$row['race'].'</td>
 <td>'.$row['address'].'</td>
-<td>'.$row['teacher'].'</td>
-<td>'.$row['class'].'</td>
-<td>'.$row['subject'].'</td>
 <td>'.$row['parentName'].'</td>
-<td>'.$row['session'].'</td>
 <td>
 <a href="admUpdate_student.php?studentID='.$row['studentID'].'" title="Update Data" data-toggle="tooltip" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
 <a href="reset_password.php?studentID='.$row['studentID'].'" title="Change Password" data-toggle="tooltip" class="btn btn-warning btn-sm"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></a>
